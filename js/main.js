@@ -129,83 +129,29 @@
   const gsap = window.gsap;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   const heading = content.querySelector('h2');
-  const name = content.querySelector('.about__name strong');
-  const nameEn = content.querySelector('.about__name em');
+  const name = content.querySelector('.about__name');
   const textLines = [...content.querySelectorAll('p span')];
-  const targets = [heading, name, nameEn, ...textLines].filter(Boolean);
-
-  const splitText = (element) => {
-    const text = element.textContent;
-    const chars = [];
-
-    element.innerHTML = '';
-    element.setAttribute('aria-label', text);
-
-    const lineElement = document.createElement('span');
-    lineElement.className = 'about-reveal__line';
-    lineElement.setAttribute('aria-hidden', 'true');
-
-    [...text].forEach((char) => {
-      const charElement = document.createElement('span');
-      charElement.className = 'char';
-      charElement.textContent = char === ' ' ? '\u00A0' : char;
-      lineElement.appendChild(charElement);
-      chars.push(charElement);
-    });
-
-    element.appendChild(lineElement);
-    return chars;
-  };
-
-  const headingChars = heading ? splitText(heading) : [];
-  const nameChars = name ? splitText(name) : [];
-  const nameEnChars = nameEn ? splitText(nameEn) : [];
-  const paragraphChars = textLines.map((line) => splitText(line));
-  const allChars = [
-    ...headingChars,
-    ...nameChars,
-    ...nameEnChars,
-    ...paragraphChars.flat()
-  ];
+  const targets = [heading, name, ...textLines].filter(Boolean);
 
   if (reduceMotion.matches) {
-    gsap.set(allChars, { clearProps: 'all' });
+    gsap.set(targets, { clearProps: 'all' });
     return;
   }
 
   const timeline = gsap.timeline({ paused: true });
 
-  timeline
-    .from(headingChars, {
-      duration: 0.7,
-      xPercent: -120,
-      opacity: 0,
-      stagger: 0.035,
-      ease: 'power4.out'
-    })
-    .from(nameChars, {
-      duration: 0.55,
-      xPercent: -120,
-      opacity: 0,
-      stagger: 0.035,
-      ease: 'power3.out'
-    }, '-=0.28')
-    .from(nameEnChars, {
-      duration: 0.45,
-      xPercent: -120,
-      opacity: 0,
-      stagger: 0.025,
-      ease: 'power3.out'
-    }, '-=0.22');
-
-  paragraphChars.forEach((chars, index) => {
-    timeline.from(chars, {
-      duration: 0.45,
-      xPercent: -100,
-      opacity: 0,
-      stagger: 0.01,
-      ease: 'power3.out'
-    }, index === 0 ? '-=0.08' : '-=0.24');
+  timeline.from(targets, {
+    duration: 0.72,
+    x: -56,
+    opacity: 0,
+    stagger: 0.14,
+    ease: 'power3.out',
+    onStart: () => {
+      gsap.set(targets, { willChange: 'transform, opacity' });
+    },
+    onComplete: () => {
+      gsap.set(targets, { clearProps: 'transform,opacity,willChange' });
+    }
   });
 
   const playAboutAnimation = () => {
