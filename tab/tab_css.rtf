@@ -1,0 +1,535 @@
+{\rtf1\ansi\ansicpg932\cocoartf2822
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fmodern\fcharset0 Courier-Oblique;\f1\fmodern\fcharset0 Courier;\f2\fnil\fcharset0 Menlo-Italic;
+}
+{\colortbl;\red255\green255\blue255;\red173\green130\blue68;\red23\green23\blue26;\red91\green138\blue176;
+\red174\green176\blue183;\red71\green149\blue242;\red203\green170\blue101;\red225\green174\blue42;\red38\green157\blue169;
+\red197\green195\blue255;\red195\green123\blue90;\red172\green172\blue172;\red89\green158\blue96;\red70\green155\blue69;
+\red44\green139\blue241;\red91\green102\blue208;\red26\green130\blue116;}
+{\*\expandedcolortbl;;\csgenericrgb\c67843\c50980\c26667;\csgenericrgb\c9020\c9020\c10196;\csgenericrgb\c35686\c54118\c69020;
+\csgenericrgb\c68235\c69020\c71765;\csgenericrgb\c27843\c58431\c94902;\csgenericrgb\c79608\c66667\c39608;\csgenericrgb\c88235\c68235\c16471;\csgenericrgb\c14902\c61569\c66275;
+\csgenericrgb\c77255\c76471\c100000;\csgenericrgb\c76471\c48235\c35294;\csgenericrgb\c67451\c67451\c67451;\csgenericrgb\c34902\c61961\c37647;\csgenericrgb\c27451\c60784\c27059;
+\csgenericrgb\c17255\c54510\c94510;\csgenericrgb\c35686\c40000\c81569;\csgenericrgb\c10196\c50980\c45490;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\i\fs26 \cf2 \cb3 /* variable */\
+
+\f1\i0 \cf4 $main-color\cf5 : \cf6 #E8112D\cf5 ;\
+\cf4 $main-color-bright\cf5 : \cf6 #ff0022\cf5 ;\
+\cf4 $main-color-dark\cf5 : \cf6 #CF152D\cf5 ;\
+\cf4 $main-color-white\cf5 : \cf6 #FFFFFF\cf5 ;\
+\cf4 $main-color-black\cf5 : \cf6 #000000\cf5 ;\
+\
+\cf4 $sub-color\cf5 : \cf6 #2d9cdb\cf5 ;\
+\cf4 $sub-color-dark\cf5 : \cf6 #384880\cf5 ;\
+\cf4 $sub-color-black\cf5 : \cf6 #00003A\cf5 ;\
+\
+\cf4 $key-color-01\cf5 : \cf6 #C45AFF\cf5 ;\
+\cf4 $key-color-02\cf5 : \cf6 #FDE126\cf5 ; 
+\f0\i \cf2 // #fff200\
+
+\f1\i0 \cf4 $key-color-02-sub\cf5 : \cf6 #FC7526\cf5 ; 
+\f0\i \cf2 // #FC7526\
+
+\f1\i0 \cf4 $key-color-03\cf5 : \cf6 #F18D9E\cf5 ; 
+\f0\i \cf2 // #e48898\
+
+\f1\i0 \cf4 $key-color-03-sub\cf5 : \cf6 #8FF2B0\cf5 ; 
+\f0\i \cf2 // F28FD1\
+\
+
+\f1\i0 \cf4 $base-color\cf5 : \cf6 #fff\cf5 ;\
+\cf4 $base-color-gray\cf5 : \cf6 #ccc\cf5 ;\
+\cf4 $base-color-lightgray\cf5 : \cf6 #F1F1F1\cf5 ; 
+\f0\i \cf2 // #F0F0F0\
+
+\f1\i0 \cf4 $base-color-darkgray\cf5 : \cf6 #1c1c1c\cf5 ;\
+\cf4 $base-color-black\cf5 : \cf6 #000\cf5 ;\
+\cf4 $bg-box-color\cf5 : \cf7 rgba\cf8 (\cf4 $base-color-gray\cf5 , \cf9 0.8\cf8 )\cf5 ;\
+\
+\cf4 $text-color\cf5 : \cf6 #333333\cf5 ;\
+\cf4 $text-color-lightgray\cf5 : \cf4 $base-color-lightgray\cf5 ;\
+\cf4 $text-color-gray\cf5 : \cf6 #999999\cf5 ;\
+\cf4 $text-color-black\cf5 : \cf4 $base-color-black\cf5 ;\
+\cf4 $text-color-white\cf5 : \cf6 #fff\cf5 ;\
+\
+
+\f0\i \cf2 /* mixin */\
+
+\f1\i0 \cf10 @mixin \cf7 sp\cf8 () \{\
+  \cf11 @media \cf7 screen \cf5 and \cf8 (\cf12 max-width\cf5 : \cf9 767\cf13 px\cf8 ) \cf14 \{\
+    \cf11 @content\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 pc \cf8 \{\
+  \cf12 display\cf5 : \cf13 block\cf5 ;\
+\cf8 \}\
+\
+\cf11 @include \cf7 sp\cf8 \{\
+  \cf5 .\cf7 pc \cf14 \{\
+    \cf12 display\cf5 : \cf13 none\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 sp \cf8 \{\
+  \cf12 display\cf5 : \cf13 none\cf5 ;\
+\cf8 \}\
+\
+\cf11 @include \cf7 sp\cf8 \{\
+  \cf5 .\cf7 sp \cf14 \{\
+    \cf12 display\cf5 : \cf13 block\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 stack-wrapper \cf8 \{\
+  \cf12 display\cf5 : \cf13 grid\cf5 ;\
+  \cf12 grid-template-columns\cf5 : \cf9 1\cf13 fr\cf5 ;\
+  \cf12 grid-template-rows\cf5 : \cf9 1\cf13 fr\cf5 ;\
+\
+  > .\cf7 pc\cf5 , > .\cf7 sp \cf14 \{\
+    \cf12 grid-column\cf5 : \cf9 1 \cf5 / -\cf9 1\cf5 ;\
+    \cf12 grid-row\cf5 : \cf9 1 \cf5 / -\cf9 1\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\
+\cf5 .\cf7 view \cf8 \{\
+  \cf12 display\cf5 : \cf13 flex\cf5 ;\
+  \cf12 justify-content\cf5 : \cf13 space-between\cf5 ;\
+\
+  \cf7 &-pc \cf14 \{\
+    \cf12 width\cf5 : \cf9 600\cf13 px\cf5 ;\
+    \cf12 height\cf5 : \cf13 auto\cf5 ;\
+\
+    \cf7 img \cf15 \{\
+      \cf12 width\cf5 : \cf9 100\cf5 %;\
+      \cf12 height\cf5 : \cf9 100\cf5 %;\
+    \cf15 \}\
+  \cf14 \}\
+\
+  \cf7 &-sp \cf14 \{\
+    \cf12 width\cf5 : \cf9 300\cf13 px\cf5 ;\
+    \cf12 height\cf5 : \cf13 auto\cf5 ;\
+\
+    \cf7 img \cf15 \{\
+      \cf12 width\cf5 : \cf9 100\cf5 %;\
+      \cf12 height\cf5 : \cf9 100\cf5 %;\
+    \cf15 \}\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 tabs \cf8 \{\
+  \cf12 margin\cf5 : \cf9 0 \cf13 auto\cf5 ;\
+\
+  .\cf7 toggle_button \cf14 \{\
+    \cf12 text-align\cf5 : \cf13 left\cf5 ;\
+    \cf12 display\cf5 : \cf13 inline-block\cf5 ;\
+    \cf12 margin\cf5 : \cf9 20\cf13 px auto\cf5 ;\
+  \cf14 \}\
+\
+  \cf5 .\cf7 toggle_input \cf14 \{\
+    \cf12 display\cf5 : \cf13 none\cf5 ;\
+  \cf14 \}\
+\
+  \cf5 .\cf7 toggle_label \cf14 \{\
+    \cf12 position\cf5 : \cf13 relative\cf5 ;\
+    \cf12 display\cf5 : \cf13 inline-block\cf5 ;\
+    \cf12 width\cf5 : \cf9 90\cf13 px\cf5 ;\
+    \cf12 height\cf5 : \cf9 40\cf13 px\cf5 ;\
+    \cf12 background-color\cf5 : \cf6 #ccc\cf5 ;\
+    \cf12 border-radius\cf5 : \cf9 32\cf13 px\cf5 ;\
+    \cf12 cursor\cf5 : \cf13 pointer\cf5 ;\
+    \cf12 transition\cf5 : \cf13 background-color \cf9 0.3\cf13 s ease\cf5 ;\
+\
+    \cf7 &\cf5 ::\cf7 before \cf15 \{\
+      \cf12 content\cf5 : \cf13 'PC'\cf5 ;\
+      \cf12 position\cf5 : \cf13 absolute\cf5 ;\
+      \cf12 top\cf5 : \cf9 50\cf5 %;\
+      \cf12 transform\cf5 : \cf7 translateY\cf8 (\cf5 -\cf9 50\cf5 %\cf8 )\cf5 ;\
+      \cf12 right\cf5 : \cf9 12\cf13 px\cf5 ;\
+      \cf12 color\cf5 : \cf6 #fff\cf5 ;\
+      \cf12 font-size\cf5 : \cf9 12\cf13 px\cf5 ;\
+      \cf12 font-weight\cf5 : \cf13 bold\cf5 ;\
+      \cf12 letter-spacing\cf5 : \cf9 0.5\cf13 px\cf5 ;\
+      \cf12 transition\cf5 : \cf13 all \cf9 0.3\cf13 s ease\cf5 ;\
+    \cf15 \}\
+\
+    \cf7 &\cf5 ::\cf7 after \cf15 \{\
+      \cf12 content\cf5 : \cf13 ''\cf5 ;\
+      \cf12 position\cf5 : \cf13 absolute\cf5 ;\
+      \cf12 top\cf5 : \cf9 4\cf13 px\cf5 ;\
+      \cf12 left\cf5 : \cf9 4\cf13 px\cf5 ;\
+      \cf12 width\cf5 : \cf9 32\cf13 px\cf5 ;\
+      \cf12 height\cf5 : \cf9 32\cf13 px\cf5 ;\
+      \cf12 border-radius\cf5 : \cf9 50\cf5 %;\
+      \cf12 background-color\cf5 : \cf6 #fff\cf5 ;\
+      \cf12 box-shadow\cf5 : \cf9 0 2\cf13 px \cf9 4\cf13 px \cf7 rgba\cf8 (\cf9 0\cf5 , \cf9 0\cf5 , \cf9 0\cf5 , \cf9 0.2\cf8 )\cf5 ;\
+      \cf12 transition\cf5 : \cf13 transform \cf9 0.3\cf13 s ease\cf5 ;\
+    \cf15 \}\
+  \cf14 \}\
+\
+  \cf5 .\cf7 toggle_input\cf5 :\cf7 checked \cf5 + .\cf7 toggle_label \cf14 \{\
+    \cf12 background-color\cf5 : \cf13 skyblue\cf5 ;\
+  \cf14 \}\
+\
+  \cf5 .\cf7 toggle_input\cf5 :\cf7 checked \cf5 + .\cf7 toggle_label\cf5 ::\cf7 before \cf14 \{\
+    \cf12 content\cf5 : \cf13 'SP'\cf5 ;\
+    \cf12 right\cf5 : \cf13 auto\cf5 ;\
+    \cf12 left\cf5 : \cf9 14\cf13 px\cf5 ;\
+  \cf14 \}\
+\
+  \cf5 .\cf7 toggle_input\cf5 :\cf7 checked \cf5 + .\cf7 toggle_label\cf5 ::\cf7 after \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translateX\cf8 (\cf9 50\cf13 px\cf8 )\cf5 ;\
+  \cf14 \}\
+\
+  \cf7 &-content \cf14 \{\
+    \cf12 background-color\cf5 : \cf6 #f5f5f5\cf5 ;\
+\
+    \cf7 &-panel \cf15 \{\
+      \cf12 display\cf5 : \cf13 none\cf5 ;\
+\
+      \cf7 &\cf5 .\cf7 active \cf16 \{\
+        \cf12 display\cf5 : \cf13 block\cf5 ;\
+        \cf12 padding\cf5 : \cf9 3\cf5 %;\
+\
+        \cf7 h2 \cf17 \{\
+          \cf12 font-size\cf5 : \cf9 20\cf13 px\cf5 ;\
+          \cf12 font-weight\cf5 : \cf13 bold\cf5 ;\
+        \cf17 \}\
+      \cf16 \}\
+    \cf15 \}\
+\
+    \cf7 &-flex \cf15 \{\
+      \cf12 margin\cf5 : \cf9 20\cf13 px\cf5 ;\
+      \cf12 text-align\cf5 : \cf13 center\cf5 ;\
+    \cf15 \}\
+\
+    \cf7 &-pc \cf15 \{\
+      \cf12 width\cf5 : \cf9 200\cf13 px\cf5 ;\
+      \cf12 height\cf5 : \cf13 auto\cf5 ;\
+    \cf15 \}\
+\
+    \cf7 &-sp \cf15 \{\
+      \cf12 width\cf5 : \cf9 200\cf13 px\cf5 ;\
+      \cf12 height\cf5 : \cf13 auto\cf5 ;\
+    \cf15 \}\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf7 ul \cf8 \{\
+  \cf12 list-style-type\cf5 : \cf13 none\cf5 ;\
+\cf8 \}\
+\cf5 .\cf7 tab-area \cf8 \{\
+  \cf12 padding\cf5 : \cf9 40\cf13 px \cf9 0\cf5 ;\
+  \cf12 display\cf5 : \cf13 flex\cf5 ;\
+  \cf12 cursor\cf5 : \cf13 pointer\cf5 ;\
+\cf8 \}\
+\
+\cf5 .\cf7 tab \cf8 \{\
+  \cf12 width\cf5 : \cf7 calc\cf8 (\cf9 100\cf5 % / \cf9 3\cf8 )\cf5 ;\
+  \cf12 padding\cf5 : \cf9 5\cf13 px\cf5 ;\
+  \cf12 text-align\cf5 : \cf13 center\cf5 ;\
+\
+  \cf7 &\cf5 .\cf7 active \cf14 \{\
+    \cf12 background-color\cf5 : \cf13 skyblue\cf5 ;\
+    \cf12 color\cf5 : \cf13 white\cf5 ;\
+    \cf12 animation\cf5 : \cf13 fadeIn \cf9 1\cf13 s ease forwards\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 panel \cf8 \{\
+  \cf12 display\cf5 : \cf13 none\cf5 ;\
+  \cf12 text-align\cf5 : \cf13 center\cf5 ;\
+\
+  \cf7 &\cf5 .\cf7 active \cf14 \{\
+    \cf12 display\cf5 : \cf13 block\cf5 ;\
+    \cf12 animation\cf5 : \cf13 fadeIn \cf9 1\cf13 s ease forwards\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf11 @keyframes \cf7 fadeIn \cf8 \{\
+  \cf7 0% \cf14 \{\
+    \cf12 opacity\cf5 : \cf9 0\cf5 ;\
+  \cf14 \}\
+  \cf7 100% \cf14 \{\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\
+
+\f0\i \cf2 //
+\f2 \uc0\u19979 \u35352 \u12356 \u12425 \u12394 \u12356 \
+
+\f1\i0 \cf7 article \cf8 \{\
+  \cf12 min-height\cf5 : \cf9 100\cf5 %;\
+\cf8 \}\
+\
+
+\f0\i \cf2 /* --- 
+\f2 \uc0\u12459 \u12540 \u12489 \u20840 \u20307 \u12398 \u12522 \u12531 \u12463 \u12392 \u12507 \u12496 \u12540 \u12450 \u12463 \u12471 \u12519 \u12531 
+\f0  --- */\
+
+\f1\i0 \cf5 .\cf7 web-link \cf8 \{\
+  \cf12 display\cf5 : \cf13 block\cf5 ;\
+  \cf12 text-decoration\cf5 : \cf13 none\cf5 ;\
+  \cf12 color\cf5 : \cf6 #000\cf5 ;\
+  \cf12 transition\cf5 : \cf13 all \cf9 0.3\cf13 s ease\cf5 ;\
+\
+  \cf7 &\cf5 :\cf7 hover \cf14 \{\
+    \cf12 opacity\cf5 : \cf9 0.8\cf5 ;\
+\
+    .\cf7 more-link \cf15 \{\
+      
+\f0\i \cf2 //color: #1fb7bc;\
+\
+      
+\f1\i0 \cf5 .\cf7 arrow-in-circle \cf16 \{\
+        
+\f0\i \cf2 //background-color: #1fb7bc;\
+        //border-color: #1fb7bc;\
+\
+        
+\f1\i0 \cf7 &\cf5 ::\cf7 before \cf17 \{\
+          
+\f0\i \cf2 //background-color: #fff;\
+          
+\f1\i0 \cf12 animation\cf5 : \cf13 flyLine \cf9 0.6\cf13 s ease forwards\cf5 ;\
+        \cf17 \}\
+        \cf7 &\cf5 ::\cf7 after \cf17 \{\
+          
+\f0\i \cf2 //border-color: #fff;\
+          
+\f1\i0 \cf12 animation\cf5 : \cf13 flyArrow \cf9 0.6\cf13 s ease forwards\cf5 ;\
+        \cf17 \}\
+      \cf16 \}\
+    \cf15 \}\
+  \cf14 \}\
+\cf8 \}\
+\
+
+\f0\i \cf2 /* --- 
+\f2 \uc0\u12304 \u36861 \u21152 \u12305 \u12450 \u12491 \u12513 \u12540 \u12471 \u12519 \u12531 \u12398 \u12461 \u12540 \u12501 \u12524 \u12540 \u12512 \u35373 \u23450 
+\f0  --- */\
+\
+/* 1. 
+\f2 \uc0\u20280 \u12403 \u12427 \u32218 \u12398 \u12450 \u12491 \u12513 \u12540 \u12471 \u12519 \u12531 
+\f0  */\
+
+\f1\i0 \cf11 @keyframes \cf7 flyLine \cf8 \{\
+  \cf7 0% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf9 0\cf5 , -\cf9 50\cf5 %\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+  \cf7 40% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf9 30\cf13 px\cf5 , -\cf9 50\cf5 %\cf8 )\cf5 ; 
+\f0\i \cf2 /* 
+\f2 \uc0\u21491 \u12395 \u25244 \u12369 \u12427 
+\f0  */\
+    
+\f1\i0 \cf12 opacity\cf5 : \cf9 0\cf5 ;                       
+\f0\i \cf2 /* 
+\f2 \uc0\u28040 \u12360 \u12427 
+\f0  */\
+  
+\f1\i0 \cf14 \}\
+  \cf7 41% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf5 -\cf9 40\cf13 px\cf5 , -\cf9 50\cf5 %\cf8 )\cf5 ; 
+\f0\i \cf2 /* 
+\f2 \uc0\u35211 \u12360 \u12394 \u12356 \u29366 \u24907 \u12391 \u24038 \u12408 \u12527 \u12540 \u12503 
+\f0  */\
+    
+\f1\i0 \cf12 opacity\cf5 : \cf9 0\cf5 ;\
+  \cf14 \}\
+  \cf7 42% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf5 -\cf9 40\cf13 px\cf5 , -\cf9 50\cf5 %\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;                       
+\f0\i \cf2 /* 
+\f2 \uc0\u24038 \u12363 \u12425 \u29694 \u12428 \u12427 \u28310 \u20633 
+\f0  */\
+  
+\f1\i0 \cf14 \}\
+  \cf7 100% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf9 0\cf5 , -\cf9 50\cf5 %\cf8 )\cf5 ;     
+\f0\i \cf2 /* 
+\f2 \uc0\u20803 \u12398 \u20301 \u32622 \u12395 \u25147 \u12427 
+\f0  */\
+    
+\f1\i0 \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+
+\f0\i \cf2 /* 2. 
+\f2 \uc0\u30690 \u21360 \u12398 \u20808 \u31471 \u65288 \u12367 \u12398 \u23383 \u65289 \u12398 \u12450 \u12491 \u12513 \u12540 \u12471 \u12519 \u12531 
+\f0  */\
+
+\f1\i0 \cf11 @keyframes \cf7 flyArrow \cf8 \{\
+  \cf7 0% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf5 -\cf9 30\cf5 %, -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+  \cf7 40% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf7 calc\cf14 (\cf5 -\cf9 30\cf5 % + \cf9 30\cf13 px\cf14 )\cf5 , -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 0\cf5 ;\
+  \cf14 \}\
+  \cf7 41% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf7 calc\cf14 (\cf5 -\cf9 30\cf5 % - \cf9 40\cf13 px\cf14 )\cf5 , -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 0\cf5 ;\
+  \cf14 \}\
+  \cf7 42% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf7 calc\cf14 (\cf5 -\cf9 30\cf5 % - \cf9 40\cf13 px\cf14 )\cf5 , -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+  \cf7 100% \cf14 \{\
+    \cf12 transform\cf5 : \cf7 translate\cf8 (\cf5 -\cf9 30\cf5 %, -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+    \cf12 opacity\cf5 : \cf9 1\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 web \cf8 \{\
+  \cf12 display\cf5 : \cf13 flex\cf5 ;\
+  \cf12 padding\cf5 : \cf9 20\cf13 px\cf5 ;\
+  \cf12 border\cf5 : \cf9 2\cf13 px solid \cf6 #000\cf5 ;\
+  \cf12 gap\cf5 : \cf9 20\cf13 px\cf5 ;\
+  \cf12 background-color\cf5 : \cf6 #fff\cf5 ;\
+\
+  \cf7 &-image \cf14 \{\
+    \cf12 width\cf5 : \cf9 150\cf13 px\cf5 ;\
+    \cf12 height\cf5 : \cf9 150\cf13 px\cf5 ;\
+    \cf12 border\cf5 : \cf9 2\cf13 px solid \cf6 #000\cf5 ;\
+    \cf12 flex-shrink\cf5 : \cf9 0\cf5 ;\
+  \cf14 \}\
+\
+  
+\f0\i \cf2 /* 
+\f2 \uc0\u21491 \u20596 \u12398 \u12486 \u12461 \u12473 \u12488 \u12456 \u12522 \u12450 
+\f0  */\
+  
+\f1\i0 \cf7 &-content \cf14 \{\
+    \cf12 display\cf5 : \cf13 flex\cf5 ;\
+    \cf12 flex-direction\cf5 : \cf13 column\cf5 ; 
+\f0\i \cf2 /* 
+\f2 \uc0\u35201 \u32032 \u12434 \u32294 \u20006 \u12403 \u12395 \u12377 \u12427 
+\f0  */\
+    
+\f1\i0 \cf12 flex-grow\cf5 : \cf9 1\cf5 ;           
+\f0\i \cf2 /* 
+\f2 \uc0\u27531 \u12426 \u12398 \u24133 \u12434 \u12377 \u12409 \u12390 \u22475 \u12417 \u12427 
+\f0  */\
+  
+\f1\i0 \cf14 \}\
+\
+  \cf7 &-title \cf14 \{\
+    \cf12 font-size\cf5 : \cf9 24\cf13 px\cf5 ;\
+    \cf12 font-weight\cf5 : \cf13 normal\cf5 ;\
+    \cf12 margin\cf5 : \cf9 0 0 8\cf13 px \cf9 0\cf5 ;\
+  \cf14 \}\
+\
+  \cf7 &-tags \cf14 \{\
+    \cf12 display\cf5 : \cf13 flex\cf5 ;\
+    \cf12 gap\cf5 : \cf9 4\cf13 px\cf5 ;\
+  \cf14 \}\
+\
+  
+\f0\i \cf2 /* 
+\f2 \uc0\u38738 \u12356 \u12479 \u12464 \u12398 \u12473 \u12479 \u12452 \u12523 
+\f0  */\
+  
+\f1\i0 \cf5 .\cf7 tag \cf14 \{\
+    \cf12 background-color\cf5 : \cf13 blue\cf5 ;\
+    \cf12 color\cf5 : \cf6 #fff\cf5 ;\
+    \cf12 padding\cf5 : \cf9 2\cf13 px \cf9 8\cf13 px\cf5 ;\
+    \cf12 font-size\cf5 : \cf9 14\cf13 px\cf5 ;\
+    \cf12 line-height\cf5 : \cf9 1.2\cf5 ;\
+  \cf14 \}\
+\
+  
+\f0\i \cf2 /* 
+\f2 \uc0\u30690 \u21360 \u12398 \u37197 \u32622 \u12456 \u12522 \u12450 
+\f0  */\
+  
+\f1\i0 \cf7 &-arrow \cf14 \{\
+    \cf12 margin-top\cf5 : \cf13 auto\cf5 ;\
+    \cf12 align-self\cf5 : \cf13 flex-end\cf5 ;\
+    \cf12 margin-bottom\cf5 : \cf9 10\cf13 px\cf5 ;\
+    \cf12 margin-right\cf5 : \cf9 10\cf13 px\cf5 ;\
+  \cf14 \}\
+\cf8 \}\
+\
+\cf5 .\cf7 more-link \cf8 \{\
+    \cf12 display\cf5 : \cf13 flex\cf5 ;\
+    \cf12 align-items\cf5 : \cf13 center\cf5 ;\
+    \cf12 gap\cf5 : \cf9 40\cf13 px\cf5 ;\
+    \cf12 transition\cf5 : \cf13 all \cf9 0.3\cf13 s ease\cf5 ;\
+\
+    \cf7 &\cf5 :\cf7 hover \cf14 \{\
+      \cf12 opacity\cf5 : \cf9 0.8\cf5 ;\
+      \cf12 color\cf5 : \cf6 #1fb7bc\cf5 ;\
+\
+      .\cf7 arrow-in-circle \cf15 \{\
+        
+\f0\i \cf2 //border-color: #1fb7bc;\
+\
+        
+\f1\i0 \cf7 &\cf5 ::\cf7 before \cf16 \{\
+          
+\f0\i \cf2 //background-color: #fff;\
+        
+\f1\i0 \cf16 \}\
+\
+        \cf7 &\cf5 ::\cf7 after \cf16 \{\
+          
+\f0\i \cf2 //border-color: #fff;\
+        
+\f1\i0 \cf16 \}\
+      \cf15 \}\
+    \cf14 \}\
+\
+    \cf7 p \cf14 \{\
+      \cf12 font-weight\cf5 : \cf13 bold\cf5 ;\
+      \cf12 font-size\cf5 : \cf9 18\cf13 px\cf5 ;\
+    \cf14 \}\
+\
+    \cf5 .\cf7 arrow-in-circle \cf14 \{\
+      \cf12 position\cf5 : \cf13 relative\cf5 ;\
+      \cf12 width\cf5 : \cf9 40\cf13 px\cf5 ;\
+      \cf12 height\cf5 : \cf9 40\cf13 px\cf5 ;\
+      \cf12 border\cf5 : \cf9 1\cf13 px solid \cf6 #000\cf5 ;\
+      \cf12 border-radius\cf5 : \cf9 50\cf5 %;\
+\
+      \cf7 &\cf5 ::\cf7 before \cf15 \{\
+        \cf12 content\cf5 : \cf13 ""\cf5 ;\
+        \cf12 position\cf5 : \cf13 absolute\cf5 ;\
+        \cf12 top\cf5 : \cf9 50\cf5 %;\
+        \cf12 right\cf5 : \cf9 40\cf5 %;\
+        \cf12 width\cf5 : \cf9 45\cf13 px\cf5 ;\
+        \cf12 height\cf5 : \cf9 1\cf13 px\cf5 ;\
+        \cf12 background-color\cf5 : \cf6 #000\cf5 ;\
+        \cf12 transform\cf5 : \cf7 translateY\cf8 (\cf5 -\cf9 50\cf5 %\cf8 )\cf5 ;\
+        \cf12 transition\cf5 : \cf13 all \cf9 0.3\cf13 s ease\cf5 ;\
+      \cf15 \}\
+\
+      \cf7 &\cf5 ::\cf7 after \cf15 \{\
+        \cf12 content\cf5 : \cf13 ""\cf5 ;\
+        \cf12 position\cf5 : \cf13 absolute\cf5 ;\
+        \cf12 top\cf5 : \cf9 50\cf5 %;\
+        \cf12 left\cf5 : \cf9 40\cf5 %;\
+        \cf12 width\cf5 : \cf9 10\cf13 px\cf5 ;\
+        \cf12 height\cf5 : \cf9 10\cf13 px\cf5 ;\
+        \cf12 border-top\cf5 : \cf9 1\cf13 px solid \cf6 #000\cf5 ;\
+        \cf12 border-right\cf5 : \cf9 1\cf13 px solid \cf6 #000\cf5 ;\
+        \cf12 transform\cf5 : \cf7 translate\cf8 (\cf5 -\cf9 30\cf5 %, -\cf9 50\cf5 %\cf8 ) \cf7 rotate\cf8 (\cf9 45\cf13 deg\cf8 )\cf5 ;\
+        \cf12 transition\cf5 : \cf13 all \cf9 0.3\cf13 s ease\cf5 ;\
+      \cf15 \}\
+    \cf14 \}\
+  \cf8 \}\
+\
+\
+\
+\
+\
+\
+\
+}
