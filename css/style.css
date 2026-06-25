@@ -898,7 +898,7 @@ button {
   min-height: 490px;
   flex-direction: column;
   align-items: center;
-  padding: 0px 24px 28px;
+  padding: 10px 24px 26px;
   border-radius: 15px;
   background: #fff;
   color: var(--ink);
@@ -921,7 +921,7 @@ button {
 .skill-card img {
   display: block;
   width: 100%;
-  height: 220px;
+  height: 200px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
   -o-object-fit: contain;
@@ -930,20 +930,27 @@ button {
 }
 .skill-card h3 {
   margin: 4px 0 20px;
-  padding: 6px 18px 4px;
+  padding: 6px 18px;
   background: var(--blue);
   color: #fff;
-  font-size: 19px;
+  font-size: 24px;
   font-style: italic;
   font-weight: 900;
   line-height: 1;
 }
-.skill-card p {
+.skill-card__text {
   margin: 0;
   font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.75;
+}
+.skill-card__tool {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.75;
+  align-self: flex-start;
 }
 
 .skill-control {
