@@ -8,7 +8,7 @@
   --grid: rgba(5, 21, 96, 0.18);
 }
 
-$noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.9'/%3E%3C/svg%3E");
+$noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E");
 
 // =========================================
 //   mixin
@@ -90,6 +90,8 @@ button {
 }
 
 .header {
+  @include noise(0.44, 80px);
+
   position: fixed;
   top: 0;
   right: 0;
@@ -100,8 +102,11 @@ button {
   align-items: center;
   justify-content: space-between;
   padding: 0 32px;
-  background: rgba(247, 247, 245, 0.96);
+  background:
+    radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
+    linear-gradient(120deg, #f9f9f7, #f2f2f2);
   border-bottom: 1px solid #8797ff;
+
   color: var(--ink);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
@@ -116,6 +121,10 @@ button {
     border-color: rgba(255, 255, 255, 0.24);
     box-shadow: 0 5px 18px rgba(0, 0, 80, 0.16);
     color: #fff;
+
+    &::before {
+      opacity: 0.24;
+    }
   }
 
   @include sp {
@@ -284,7 +293,7 @@ button {
     flex-shrink: 0;
 
     @include sp {
-      width: clamp(250px, 68vw, 280px);
+      width: clamp(330px, 60vw, 350px);
     }
   }
 
@@ -295,8 +304,8 @@ button {
 
     &--top {
       top: 70px;
-      left: -60px;
-      width: 560px;
+      left: -50px;
+      width: 540px;
 
       @include sp {
         top: 10px;
@@ -307,10 +316,10 @@ button {
     &--bottom {
       right: -35px;
       bottom: -10px;
-      width: 1000px;
+      width: 800px;
 
       @include sp {
-        right: -160px;
+        right: -30px;
         bottom: -5px;
       }
     }
@@ -374,11 +383,13 @@ button {
 }
 
 .website-card {
+  @include noise(0.44, 80px);
+
   display: grid;
   min-height: 268px;
   grid-template-columns: 40% 60%;
   align-items: center;
-  background: #f8f8f8;
+  background-color: #fbfbfb;
   border: 1px solid #ccd0ff;
   color: var(--ink);
   transition: transform 0.25s ease;
@@ -462,7 +473,7 @@ button {
 
   &:hover,
   &:focus-visible {
-    .more-link {
+    .more-link--website {
       .arrow-in-circle {
         &::before {
           animation: flyLine 0.6s ease forwards;
@@ -470,6 +481,18 @@ button {
 
         &::after {
           animation: flyArrow 0.6s ease forwards;
+        }
+      }
+    }
+
+    .more-link--banner {
+      .arrow-in-circle {
+        &::before {
+          animation: flyLineBanner 0.5s ease forwards;
+        }
+
+        &::after {
+          animation: flyArrowBanner 0.5s ease forwards;
         }
       }
     }
@@ -502,7 +525,7 @@ button {
   }
 
   &--banner {
-    gap: 24px;
+    gap: 30px;
 
     p {
       font-size: 16px;
@@ -619,6 +642,60 @@ button {
   }
 }
 
+@keyframes flyLineBanner {
+  0% {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+
+  40% {
+    opacity: 0;
+    transform: translate(8px, -50%);
+  }
+
+  41% {
+    opacity: 0;
+    transform: translate(-10px, -50%);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translate(-10px, -50%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes flyArrowBanner {
+  0% {
+    opacity: 1;
+    transform: translate(-30%, -50%) rotate(45deg);
+  }
+
+  40% {
+    opacity: 0;
+    transform: translate(calc(-30% + 16px), -50%) rotate(45deg);
+  }
+
+  41% {
+    opacity: 0;
+    transform: translate(calc(-30% - 22px), -50%) rotate(45deg);
+  }
+
+  42% {
+    opacity: 1;
+    transform: translate(calc(-30% - 22px), -50%) rotate(45deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-30%, -50%) rotate(45deg);
+  }
+}
+
 .banners {
   min-height: 870px;
   padding: 4px 22px 82px;
@@ -641,11 +718,13 @@ button {
 }
 
 .banner-card {
+  @include noise(0.44, 80px);
+
   display: flex;
   min-height: 324px;
   flex-direction: column;
   padding: 8px 12px 10px;
-  background: #f8f8f8;
+  background-color: #f8f8f8;
   color: var(--ink);
   transition: transform 0.25s ease;
 
@@ -932,6 +1011,8 @@ button {
 }
 
 .skill-card {
+  @include noise(0.44, 80px);
+
   display: flex;
   flex: 0 0 calc((100% - 60px) / 3);
   min-height: 490px;
@@ -939,7 +1020,8 @@ button {
   align-items: center;
   padding: 10px 24px 26px;
   border-radius: 15px;
-  background: #fff;
+  overflow: hidden;
+  background-color: #fff;
   color: var(--ink);
   transform: scale(0.9);
   transform-origin: center bottom;
@@ -1072,7 +1154,7 @@ button {
   min-height: 240px;
   flex-direction: column;
   justify-content: space-between;
-  padding: 54px 14px 24px;
+  padding: 54px 100px 24px;
   background: #f8f8f7;
   color: var(--ink);
 
@@ -1093,7 +1175,7 @@ button {
     }
 
     span {
-      letter-spacing: -0.25em;
+      letter-spacing: -0.1em;
     }
   }
 
