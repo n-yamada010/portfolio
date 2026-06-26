@@ -64,6 +64,58 @@
 })();
 
 (() => {
+  const topCloud = document.querySelector('.hero__cloud--top');
+  const bottomCloud = document.querySelector('.hero__cloud--bottom');
+
+  if (!topCloud || !bottomCloud || !window.gsap) return;
+
+  const gsap = window.gsap;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reduceMotion.matches) return;
+
+  gsap.set([topCloud, bottomCloud], {
+    willChange: 'transform, opacity'
+  });
+
+  const floatCloud = (cloud, y, duration) => {
+    gsap.to(cloud, {
+      y,
+      duration,
+      ease: 'sine.inOut',
+      repeat: -1,
+      yoyo: true
+    });
+  };
+
+  gsap.timeline({
+    delay: 0.2,
+    onComplete: () => {
+      floatCloud(topCloud, -14, 3.6);
+      floatCloud(bottomCloud, 18, 4.4);
+    }
+  })
+    .fromTo(topCloud, {
+      x: -180,
+      opacity: 0
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 1.2,
+      ease: 'power3.out'
+    }, 0)
+    .fromTo(bottomCloud, {
+      x: 180,
+      opacity: 0
+    }, {
+      x: 0,
+      opacity: 1,
+      duration: 1.35,
+      ease: 'power3.out'
+    }, 0.12);
+})();
+
+(() => {
   const header = document.querySelector('#mainNav');
   const regions = [...document.querySelectorAll('main > section, .footer')];
 

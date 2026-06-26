@@ -1063,7 +1063,7 @@ button {
   }
 
   @include tab {
-      flex: 0 0 calc((100% - 90px) / 2);
+      flex: 0 0 calc((100% - 120px) / 2);
   }
 
   @include sp {
