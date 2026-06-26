@@ -721,8 +721,8 @@ button {
   min-height: 870px;
   padding: 4px 22px 82px;
 
-    @include tab {
-  padding: 4px 14px 82px;
+  @include tab {
+    padding: 4px 14px 82px;
   }
 
   @include sp {
@@ -835,7 +835,7 @@ button {
     @include sp {
       min-height: auto;
       grid-template-columns: 1fr;
-      padding: 70px 24px 0;
+      padding: 70px 24px 50px;
     }
   }
 
@@ -858,14 +858,20 @@ button {
     border-radius: 180px 180px 0 0;
     background: var(--blue);
 
-    @include sp {
-      width: 310px;
-      height: 410px;
-    }
-
     img {
       width: 220px;
       transform-origin: bottom;
+    }
+
+    @include sp {
+      width: 300px;
+      height: 360px;
+
+      img {
+        width: 180px;
+        transform-origin: bottom;
+      }
+
     }
   }
 
@@ -876,7 +882,7 @@ button {
 
     @include sp {
       order: -1;
-      padding: 0 0 50px;
+      padding: 0 0 30px;
     }
 
     h2 {
@@ -960,8 +966,8 @@ button {
       transform: translateX(-50%);
 
       @include sp {
-        right: 6%;
-        bottom: 18%;
+        right: 2%;
+        bottom: 1%;
         left: auto;
         width: clamp(50px, 16vw, 68px);
         transform: none;
@@ -1063,7 +1069,7 @@ button {
   }
 
   @include tab {
-      flex: 0 0 calc((100% - 120px) / 2);
+    flex: 0 0 calc((100% - 120px) / 2);
   }
 
   @include sp {
@@ -1193,6 +1199,7 @@ button {
 
   @include sp {
     min-height: 190px;
+      padding: 54px 10px 24px;
     padding-top: 42px;
   }
 

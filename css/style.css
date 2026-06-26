@@ -929,7 +929,7 @@ button {
   .about__inner {
     min-height: auto;
     grid-template-columns: 1fr;
-    padding: 70px 24px 0;
+    padding: 70px 24px 50px;
   }
 }
 .about__visual {
@@ -950,15 +950,19 @@ button {
   border-radius: 180px 180px 0 0;
   background: var(--blue);
 }
-@media screen and (max-width: 767px) {
-  .about__arch {
-    width: 310px;
-    height: 410px;
-  }
-}
 .about__arch img {
   width: 220px;
   transform-origin: bottom;
+}
+@media screen and (max-width: 767px) {
+  .about__arch {
+    width: 300px;
+    height: 360px;
+  }
+  .about__arch img {
+    width: 180px;
+    transform-origin: bottom;
+  }
 }
 .about__content {
   position: relative;
@@ -968,7 +972,7 @@ button {
 @media screen and (max-width: 767px) {
   .about__content {
     order: -1;
-    padding: 0 0 50px;
+    padding: 0 0 30px;
   }
 }
 .about__content h2 {
@@ -1051,8 +1055,8 @@ button {
 }
 @media screen and (max-width: 767px) {
   .about__decoration--sparkle-bottom {
-    right: 6%;
-    bottom: 18%;
+    right: 2%;
+    bottom: 1%;
     left: auto;
     width: clamp(50px, 16vw, 68px);
     transform: none;
@@ -1310,6 +1314,7 @@ button {
 @media screen and (max-width: 767px) {
   .footer {
     min-height: 190px;
+    padding: 54px 10px 24px;
     padding-top: 42px;
   }
 }
