@@ -173,6 +173,73 @@
 })();
 
 (() => {
+  const works = document.querySelector('.works');
+  const cards = [...document.querySelectorAll('.website-card')];
+
+  if (!works || !cards.length || !window.gsap) return;
+
+  const gsap = window.gsap;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reduceMotion.matches) {
+    gsap.set(cards, { clearProps: 'all' });
+    return;
+  }
+
+  gsap.set(cards, {
+    x: -20,
+    opacity: 0
+  });
+
+  const timeline = gsap.timeline({
+    paused: true,
+    defaults: {
+      duration: 0.8,
+      ease: 'power1.out'
+    },
+    onStart: () => {
+      gsap.set(cards, { willChange: 'transform, opacity' });
+    },
+    onComplete: () => {
+      gsap.set(cards, { clearProps: 'transform,opacity,willChange' });
+    }
+  });
+
+  cards.forEach((card, index) => {
+    timeline.to(card, {
+      x: 0,
+      opacity: 1
+    }, index === 0 ? 0 : '-=0.4');
+  });
+
+  const playWebsiteAnimation = () => {
+    if (!timeline.isActive() && timeline.progress() === 0) {
+      timeline.play();
+    }
+  };
+
+  if (window.ScrollTrigger) {
+    gsap.registerPlugin(window.ScrollTrigger);
+    window.ScrollTrigger.create({
+      trigger: works,
+      start: 'top 70%',
+      once: true,
+      onEnter: playWebsiteAnimation
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    if (entries.some((entry) => entry.isIntersecting)) {
+      playWebsiteAnimation();
+      observer.disconnect();
+    }
+  }, { threshold: 0.2 });
+
+  observer.observe(works);
+})();
+
+(() => {
   const about = document.querySelector('.about');
   const content = document.querySelector('.about__content');
 
@@ -231,6 +298,62 @@
   }, { threshold: 0.35 });
 
   observer.observe(about);
+})();
+
+(() => {
+  const cards = [...document.querySelectorAll('.banner-card')];
+
+  if (!cards.length || !window.gsap) return;
+
+  const gsap = window.gsap;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reduceMotion.matches) {
+    gsap.set(cards, { clearProps: 'all' });
+    return;
+  }
+
+  gsap.set(cards, {
+    y: 20,
+    opacity: 0,
+    willChange: 'transform, opacity'
+  });
+
+  const revealCards = (targets) => {
+    gsap.to(targets, {
+      y: 0,
+      opacity: 1,
+      stagger: 0.2,
+      duration: 0.2,
+      ease: 'power2.out',
+      overwrite: 'auto',
+      onComplete: () => {
+        gsap.set(targets, { clearProps: 'transform,opacity,willChange' });
+      }
+    });
+  };
+
+  if (window.ScrollTrigger) {
+    gsap.registerPlugin(window.ScrollTrigger);
+    window.ScrollTrigger.batch(cards, {
+      start: 'top 85%',
+      once: true,
+      interval: 0.15,
+      batchMax: 6,
+      onEnter: revealCards
+    });
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      revealCards([entry.target]);
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.2 });
+
+  cards.forEach((card) => observer.observe(card));
 })();
 
 (() => {

@@ -354,7 +354,7 @@ button {
 
   @include sp {
     min-height: auto;
-    padding: 50px 10px 60px;
+    padding: 50px 14px 60px;
   }
 }
 
@@ -716,7 +716,7 @@ button {
 
   @include sp {
     min-height: auto;
-    padding: 0 12px 65px;
+    padding: 0 14px 65px;
   }
 }
 
@@ -736,6 +736,7 @@ button {
 }
 
 .view-all-works {
+  position: relative;
   display: flex;
   width: fit-content;
   flex-direction: column;
@@ -746,7 +747,7 @@ button {
   font-style: italic;
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 0.8;
+  line-height: 0.87;
   text-decoration: none;
 
   @include sp {
@@ -760,9 +761,16 @@ button {
     white-space: nowrap;
 
     &--main {
+      position: relative;
       display: flex;
+      width: fit-content;
       align-items: center;
+      align-self: flex-start;
       gap: clamp(12px, 2vw, 28px);
+      color: #fff;
+      -webkit-text-fill-color: #fff;
+      -webkit-text-stroke: 2px transparent;
+      paint-order: stroke fill;
     }
 
     &--outline {
@@ -782,14 +790,84 @@ button {
   }
 
   &__arrows {
+    position: relative;
     display: inline-block;
-    letter-spacing: -0.14em;
+    width: clamp(50px, 5vw, 66px);
+    height: clamp(28px, 3vw, 40px);
+    flex: 0 0 auto;
+    color: #fff;
     transition: transform 0.3s ease;
+
+    &::before,
+    &::after,
+    >span {
+      position: absolute;
+      top: 0;
+      width: 56%;
+      height: 100%;
+      background-color: currentColor;
+      -webkit-clip-path: polygon(25% 0%, 65% 50%, 25% 100%, 0% 100%, 40% 50%, 0% 0%);
+      clip-path: polygon(25% 0%, 65% 50%, 25% 100%, 0% 100%, 40% 50%, 0% 0%);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    >span {
+      left: 20%;
+    }
+
+    &::after {
+      left: 40%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: attr(data-text);
+      pointer-events: none;
+      white-space: nowrap;
+      -webkit-clip-path: inset(-0.12em 100% -0.12em 0);
+      clip-path: inset(-0.12em 100% -0.12em 0);
+      transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1), -webkit-clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: clip-path;
+    }
+  }
+
+  &__line--main &__text::after {
+    color: var(--blue);
+    -webkit-text-fill-color: var(--blue);
+    -webkit-text-stroke: 2px #fff;
+    paint-order: stroke fill;
+  }
+
+  &__line--outline &__text::after {
+    color: #fff;
+    -webkit-text-fill-color: #fff;
+    -webkit-text-stroke: 2px var(--blue);
+    paint-order: stroke fill;
   }
 
   &:hover &__arrows,
   &:focus-visible &__arrows {
     transform: translateX(10px);
+  }
+
+  &:hover &__text::after,
+  &:focus-visible &__text::after {
+    -webkit-clip-path: inset(-0.12em -0.18em -0.12em 0);
+    clip-path: inset(-0.12em -0.18em -0.12em 0);
   }
 }
 
@@ -1233,6 +1311,157 @@ button {
   }
 }
 
+.more-about-me {
+  position: relative;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-top: 10px;
+  color: var(--ink);
+  font-family: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+  font-size: clamp(38px, 4.7vw, 64px);
+  font-style: italic;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 0.85;
+  text-decoration: none;
+
+  @include sp {
+    max-width: 100%;
+    font-size: clamp(27px, 8vw, 42px);
+  }
+
+  &__line {
+    display: block;
+    white-space: nowrap;
+
+    &--main {
+      position: relative;
+      display: flex;
+      width: fit-content;
+      align-items: center;
+      align-self: flex-start;
+      gap: clamp(12px, 2vw, 28px);
+      color: var(--ink);
+      -webkit-text-fill-color: var(--ink);
+      -webkit-text-stroke: 1px transparent;
+      paint-order: stroke fill;
+    }
+
+    &--outline {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px var(--ink);
+      paint-order: stroke fill;
+
+      &:nth-child(2) {
+        padding-left: clamp(12px, 1.4vw, 20px);
+      }
+
+      &:nth-child(3) {
+        padding-left: clamp(24px, 2.8vw, 40px);
+      }
+    }
+  }
+
+  &__arrows {
+    position: relative;
+    display: inline-block;
+    width: clamp(50px, 5vw, 66px);
+    height: clamp(28px, 3vw, 40px);
+    flex: 0 0 auto;
+    color: var(--ink);
+    transition: transform 0.3s ease;
+
+    &::before,
+    &::after,
+    >span {
+      position: absolute;
+      top: 0;
+      width: 56%;
+      height: 100%;
+      background-color: currentColor;
+      -webkit-clip-path: polygon(25% 0%, 65% 50%, 25% 100%, 0% 100%, 40% 50%, 0% 0%);
+      clip-path: polygon(25% 0%, 65% 50%, 25% 100%, 0% 100%, 40% 50%, 0% 0%);
+    }
+
+    &::before,
+    &::after {
+      content: "";
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    >span {
+      left: 20%;
+    }
+
+    &::after {
+      left: 40%;
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: attr(data-text);
+      pointer-events: none;
+      white-space: nowrap;
+      -webkit-clip-path: inset(-0.12em 100% -0.12em 0);
+      clip-path: inset(-0.12em 100% -0.12em 0);
+      transition: clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1), -webkit-clip-path 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: clip-path;
+    }
+  }
+
+  &__line--main &__text {
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px var(--ink);
+    paint-order: stroke fill;
+  }
+
+  &__line--main &__text::after {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    -webkit-text-stroke: 1px transparent;
+    -webkit-clip-path: inset(-0.12em -0.18em -0.12em 0);
+    clip-path: inset(-0.12em -0.18em -0.12em 0);
+    paint-order: stroke fill;
+  }
+
+  &__line--outline &__text::after {
+    color: var(--ink);
+    -webkit-text-fill-color: var(--ink);
+    -webkit-text-stroke: 1px #f8f8f7;
+    paint-order: stroke fill;
+  }
+
+  &:hover &__arrows,
+  &:focus-visible &__arrows {
+    transform: translateX(10px);
+  }
+
+  &:hover &__text::after,
+  &:focus-visible &__text::after {
+    -webkit-clip-path: inset(-0.12em -0.18em -0.12em 0);
+    clip-path: inset(-0.12em -0.18em -0.12em 0);
+  }
+
+  &:hover &__line--main &__text::after,
+  &:focus-visible &__line--main &__text::after {
+    -webkit-clip-path: inset(-0.12em -0.18em -0.12em 110%);
+    clip-path: inset(-0.12em -0.18em -0.12em 110%);
+  }
+}
+
 .footer {
   @include noise(0.44, 80px);
 
@@ -1251,24 +1480,7 @@ button {
 
     @include sp {
       min-height: 190px;
-      padding-top: 42px;
-    }
-
-    >a {
-      align-self: flex-start;
-      font-size: clamp(38px, 5.3vw, 64px);
-      font-style: italic;
-      font-weight: 900;
-      letter-spacing: -0.07em;
-      margin-top: 10px;
-
-      @include sp {
-        font-size: 34px;
-      }
-
-      span {
-        letter-spacing: -0.1em;
-      }
+      padding: 20px 10px 0;
     }
 
     small {
