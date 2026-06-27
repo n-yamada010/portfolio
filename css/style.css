@@ -1386,13 +1386,99 @@ button {
   width: 100%;
   height: auto;
 }
+.skill-control__buttons button#skillPrev, .skill-control__buttons button#skillNext {
+  overflow: hidden;
+}
+.skill-control__buttons button#skillPrev:hover img, .skill-control__buttons button#skillPrev:focus-visible img {
+  -webkit-animation: skillArrowLoopPrev 0.7s cubic-bezier(0.45, 0, 0.2, 1);
+          animation: skillArrowLoopPrev 0.7s cubic-bezier(0.45, 0, 0.2, 1);
+}
+.skill-control__buttons button#skillNext:hover img, .skill-control__buttons button#skillNext:focus-visible img {
+  -webkit-animation: skillArrowLoopNext 0.7s cubic-bezier(0.45, 0, 0.2, 1);
+          animation: skillArrowLoopNext 0.7s cubic-bezier(0.45, 0, 0.2, 1);
+}
 .skill-control__buttons .pause {
   width: 39px;
 }
-.skill-control__buttons .pause.is-paused {
-  opacity: 0.55;
+.skill-control__buttons .pause img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+@-webkit-keyframes skillArrowLoopPrev {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  46% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
+@keyframes skillArrowLoopPrev {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  46% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes skillArrowLoopNext {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  46% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes skillArrowLoopNext {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  45% {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  46% {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 .more-about-me {
   position: relative;
   display: flex;
@@ -1583,6 +1669,10 @@ button {
   *,
 *::before,
 *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }

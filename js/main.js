@@ -365,14 +365,20 @@
   const prev = document.querySelector('#skillPrev');
   const next = document.querySelector('#skillNext');
   const pause = document.querySelector('#skillPause');
+  const pauseImage = pause?.querySelector('img');
 
-  if (!slider || !track || !progress || !progressBar || !progressKnob || !prev || !next || !pause) return;
+  if (!slider || !track || !progress || !progressBar || !progressKnob || !prev || !next || !pause || !pauseImage) return;
   if (!window.gsap) return;
 
   const gsap = window.gsap;
   const cards = [...track.querySelectorAll('.skill-card')];
   const cardCount = cards.length;
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const pauseImageSource = pauseImage.getAttribute('src') || 'img/skillPause.png';
+  const stopImageSource = 'img/skillStop.png';
+  const stopImagePreload = new Image();
+
+  stopImagePreload.src = stopImageSource;
 
   if (!cardCount) return;
 
@@ -596,6 +602,35 @@
     startTimer();
   };
 
+  const updatePauseImage = () => {
+    const nextImageSource = isPaused ? stopImageSource : pauseImageSource;
+
+    if (reduceMotion.matches) {
+      pauseImage.setAttribute('src', nextImageSource);
+      gsap.set(pauseImage, { clearProps: 'opacity' });
+      return;
+    }
+
+    gsap.to(pauseImage, {
+      opacity: 0,
+      duration: 0.16,
+      ease: 'power1.out',
+      overwrite: 'auto',
+      onComplete: () => {
+        pauseImage.setAttribute('src', nextImageSource);
+        gsap.to(pauseImage, {
+          opacity: 1,
+          duration: 0.24,
+          ease: 'power1.out',
+          overwrite: 'auto',
+          onComplete: () => {
+            gsap.set(pauseImage, { clearProps: 'opacity' });
+          }
+        });
+      }
+    });
+  };
+
   prev.addEventListener('click', () => {
     showPrev();
     resetTimer();
@@ -609,6 +644,7 @@
   pause.addEventListener('click', () => {
     isPaused = !isPaused;
     pause.classList.toggle('is-paused', isPaused);
+    updatePauseImage();
     pause.setAttribute('aria-label', isPaused ? '自動再生を再開' : '自動再生を一時停止');
     startTimer();
   });
