@@ -106,7 +106,7 @@ button {
   display: flex;
   height: 58px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 32px;
   background:
     radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
@@ -137,17 +137,6 @@ button {
     height: 54px;
     justify-content: center;
     padding: 0 12px;
-  }
-
-  &__logo {
-    font-size: 11px;
-    font-style: italic;
-    font-weight: 900;
-    letter-spacing: -0.06em;
-
-    @include sp {
-      display: none;
-    }
   }
 
   &__nav {
