@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web designer Niina Yamada's design works">
+  <title>All Design | Niina Yamada Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Noto+Sans+JP:wght@500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body id="top">
+  <header class="header">
+    <button class="header__menu-button" type="button" aria-controls="mainMenu" aria-expanded="false" aria-label="メニューを開く">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="header__menu" id="mainMenu" aria-label="メインナビゲーション">
+      <ul class="header__nav">
+        <li><a href="#top">TOP</a></li>
+        <li><a href="#works">WORKS</a></li>
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#skills">SKILL</a></li>
+        <li><a href="#profile">PROFILE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="works" id="works" aria-labelledby="worksTitle">
+      <div class="works__inner">
+        <h1 class="works__title" id="worksTitle">ALL DESIGN</h1>
+
+        <div class="filters" role="group" aria-label="作品カテゴリー">
+          <button class="filter is-active" type="button" data-filter="all" aria-pressed="true">ALL DESIGN</button>
+          <button class="filter" type="button" data-filter="web" aria-pressed="false">WEB</button>
+          <button class="filter" type="button" data-filter="banner" aria-pressed="false">BANNER</button>
+          <button class="filter" type="button" data-filter="other" aria-pressed="false">OTHER</button>
+        </div>
+
+        <div class="works__grid" id="worksGrid">
+          <article class="work-card" data-category="web">
+            <a href="img/website01.png" target="_blank" rel="noopener">
+              <div class="work-card__visual work-card__visual--web"><img src="img/website01.png" alt="Niina Yamada ポートフォリオサイトのデザイン" width="500" height="300"></div>
+              <h2 class="work-card__title">Niina Yamada Portfolio</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="web">
+            <a href="img/website02.png" target="_blank" rel="noopener">
+              <div class="work-card__visual work-card__visual--web"><img src="img/website02.png" alt="Webサイトデザイン作品 02" width="500" height="300"></div>
+              <h2 class="work-card__title">Portfolio Website</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="web">
+            <a href="img/website03.png" target="_blank" rel="noopener">
+              <div class="work-card__visual work-card__visual--web"><img src="img/website03.png" alt="Webサイトデザイン作品 03" width="500" height="300"></div>
+              <h2 class="work-card__title">Creative Website</h2>
+            </a>
+          </article>
+
+          <article class="work-card" data-category="banner">
+            <a href="img/banner01.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner01.png" alt="バナーデザイン作品 01" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 01</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="banner">
+            <a href="img/banner02.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner02.png" alt="バナーデザイン作品 02" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 02</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="banner">
+            <a href="img/banner03.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner03.png" alt="バナーデザイン作品 03" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 03</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="banner">
+            <a href="img/banner04.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner04.png" alt="バナーデザイン作品 04" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 04</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="banner">
+            <a href="img/banner05.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner05.png" alt="バナーデザイン作品 05" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 05</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="banner">
+            <a href="img/banner06.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/banner06.png" alt="バナーデザイン作品 06" width="340" height="250"></div>
+              <h2 class="work-card__title">Banner Design 06</h2>
+            </a>
+          </article>
+
+          <article class="work-card" data-category="other">
+            <a href="img/design.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/design.png" alt="グラフィックデザイン作品" width="321" height="220"></div>
+              <h2 class="work-card__title">Graphic Design</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="other">
+            <a href="img/coding.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/coding.png" alt="コーディング作品" width="321" height="220"></div>
+              <h2 class="work-card__title">Coding</h2>
+            </a>
+          </article>
+          <article class="work-card" data-category="other">
+            <a href="img/illustration.png" target="_blank" rel="noopener">
+              <div class="work-card__visual"><img src="img/illustration.png" alt="イラストレーション作品" width="321" height="220"></div>
+              <h2 class="work-card__title">Illustration</h2>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a href="#top">BACK TO TOP <span aria-hidden="true">↗</span></a>
+      <small>ALL RIGHTS RESERVED © NIINA YAMADA</small>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
