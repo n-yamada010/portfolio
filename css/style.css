@@ -319,7 +319,12 @@ button {
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .hero {
-    min-height: 70vh;
+    min-height: 80vh;
+  }
+}
+@media screen and (max-width: 767px) {
+  .hero {
+    min-height: 90vh;
   }
 }
 .hero::after {
@@ -353,7 +358,7 @@ button {
   .hero__main {
     flex-direction: column;
     width: calc(100% - 24px);
-    gap: 40px;
+    gap: 5px;
   }
 }
 .hero__copy {
@@ -424,7 +429,7 @@ button {
 }
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .hero .record-art {
-    width: clamp(260px, 32vw, 330px);
+    width: clamp(260px, 40vw, 330px);
   }
 }
 @media screen and (max-width: 767px) {
@@ -444,8 +449,9 @@ button {
 }
 @media screen and (max-width: 767px) {
   .hero__cloud--top {
-    top: 10px;
-    left: -120px;
+    top: -10px;
+    left: -90px;
+    width: 420px;
   }
 }
 .hero__cloud--bottom {
@@ -516,6 +522,7 @@ button {
 }
 @media screen and (max-width: 767px) {
   .section-title {
+    gap: 16px;
     font-size: 46px;
   }
 }
@@ -529,7 +536,7 @@ button {
 }
 @media screen and (max-width: 767px) {
   .sparkle-line {
-    width: 160px;
+    width: 130px;
   }
 }
 
@@ -1476,6 +1483,11 @@ button {
 
 .skill-control {
   margin: 68px auto 0;
+}
+@media screen and (max-width: 767px) {
+  .skill-control {
+    margin: 54px auto 0;
+  }
 }
 .skill-control__track {
   position: relative;

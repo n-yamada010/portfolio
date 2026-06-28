@@ -339,7 +339,11 @@ button {
     linear-gradient(120deg, #f9f9f7, #f2f2f2);
 
   @include tab {
-    min-height: 70vh;
+    min-height: 80vh;
+  }
+
+  @include sp {
+    min-height: 90vh;
   }
 
   &::after {
@@ -372,7 +376,7 @@ button {
     @include sp {
       flex-direction: column;
       width: calc(100% - 24px);
-      gap: 40px;
+      gap: 5px;
     }
   }
 
@@ -443,7 +447,7 @@ button {
     flex-shrink: 0;
 
     @include tab {
-      width: clamp(260px, 32vw, 330px);
+      width: clamp(260px, 40vw, 330px);
     }
 
     @include sp {
@@ -462,8 +466,9 @@ button {
       width: 540px;
 
       @include sp {
-        top: 10px;
-        left: -120px;
+        top: -10px;
+        left: -90px;
+        width: 420px;
       }
     }
 
@@ -514,6 +519,7 @@ button {
   line-height: 1;
 
   @include sp {
+    gap: 16px;
     font-size: 46px;
   }
 
@@ -527,7 +533,7 @@ button {
   height: auto;
 
   @include sp {
-    width: 160px;
+    width: 130px;
   }
 }
 
@@ -1388,6 +1394,10 @@ button {
 .skill-control {
   margin: 68px auto 0;
 
+  @include sp {
+    margin: 54px auto 0;
+  }
+
   &__track {
     position: relative;
     width: 76%;
@@ -1450,6 +1460,7 @@ button {
       }
 
       &#skillPrev {
+
         &:hover img,
         &:focus-visible img {
           animation: skillArrowLoopPrev 0.7s cubic-bezier(0.45, 0, 0.2, 1);
@@ -1457,6 +1468,7 @@ button {
       }
 
       &#skillNext {
+
         &:hover img,
         &:focus-visible img {
           animation: skillArrowLoopNext 0.7s cubic-bezier(0.45, 0, 0.2, 1);
