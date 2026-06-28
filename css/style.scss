@@ -282,10 +282,6 @@ button {
       flex-direction: column;
       align-items: center;
       gap: 34px;
-
-      li:first-child {
-        display: none;
-      }
     }
 
     a {
@@ -339,11 +335,11 @@ button {
     linear-gradient(120deg, #f9f9f7, #f2f2f2);
 
   @include tab {
-    min-height: 80vh;
+    min-height: max(80vh, 620px);
   }
 
   @include sp {
-    min-height: 90vh;
+    min-height: max(100svh, 700px);
   }
 
   &::after {
@@ -361,29 +357,38 @@ button {
     z-index: 5;
     top: 50%;
     left: 50%;
-    display: flex;
+    display: grid;
     width: min(100% - 48px, 1200px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 42%);
     align-items: center;
-    justify-content: center;
-    gap: clamp(48px, 8vw, 180px);
+    gap: clamp(32px, 6vw, 96px);
     transform: translate(-50%, -50%);
 
     @include tab {
       width: calc(100% - 32px);
-      gap: 4vw;
+      grid-template-columns: minmax(0, 1fr) minmax(240px, 36vw);
+      gap: clamp(24px, 3vw, 36px);
     }
 
     @include sp {
-      flex-direction: column;
-      width: calc(100% - 24px);
-      gap: 5px;
+      position: relative;
+      top: auto;
+      left: auto;
+      width: min(calc(100% - 32px), 440px);
+      min-height: max(100svh, 700px);
+      margin: 0 auto;
+      padding: 145px 0 165px;
+      grid-template-columns: minmax(0, 1fr);
+      align-content: center;
+      gap: clamp(24px, 5vh, 36px);
+      transform: none;
     }
   }
 
   &__copy {
     display: flex;
+    min-width: 0;
     flex-direction: column;
-    flex-shrink: 0;
     gap: 18px;
 
 
@@ -395,8 +400,7 @@ button {
 
     h1 {
       margin: 0;
-      min-width: max-content;
-      flex-shrink: 0;
+      min-width: 0;
       font-size: 64px;
       font-style: italic;
       font-weight: 900;
@@ -410,8 +414,7 @@ button {
 
       @include sp {
         width: 100%;
-        min-width: 0;
-        font-size: 43px;
+        font-size: clamp(36px, 11.5vw, 43px);
       }
     }
 
@@ -442,16 +445,17 @@ button {
   }
 
   .record-art {
-    width: clamp(360px, 36vw, 520px);
+    width: 100%;
+    max-width: 520px;
     height: auto;
-    flex-shrink: 0;
+    justify-self: center;
 
     @include tab {
-      width: clamp(260px, 40vw, 330px);
+      max-width: 330px;
     }
 
     @include sp {
-      width: clamp(300px, 60vw, 350px);
+      width: clamp(250px, 76vw, 330px);
     }
   }
 
@@ -465,10 +469,16 @@ button {
       left: -50px;
       width: 540px;
 
+      @include tab {
+        top: 40px;
+        left: -50px;
+        width: min(47vw, 460px);
+      }
+
       @include sp {
         top: -10px;
-        left: -90px;
-        width: 420px;
+        left: clamp(-90px, -12vw, -38px);
+        width: min(115vw, 420px);
       }
     }
 
@@ -477,9 +487,15 @@ button {
       bottom: -10px;
       width: 800px;
 
-      @include sp {
+      @include tab {
         right: -30px;
+        width: min(60vw, 620px);
+      }
+
+      @include sp {
+        right: clamp(-70px, -8vw, -24px);
         bottom: -5px;
+        width: min(145vw, 560px);
       }
     }
   }
@@ -897,7 +913,7 @@ button {
   font-style: italic;
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 0.87;
+  line-height: 0.77;
   text-decoration: none;
 
   @include sp {
@@ -1545,7 +1561,7 @@ button {
   font-style: italic;
   font-weight: 900;
   letter-spacing: -0.02em;
-  line-height: 0.85;
+  line-height: 0.75;
   text-decoration: none;
 
   @include sp {
