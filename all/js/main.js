@@ -1,8 +1,6 @@
 const filterButtons = document.querySelectorAll(".filter");
 const cards = document.querySelectorAll(".work-card");
 const worksTitle = document.querySelector("#worksTitle");
-const menuButton = document.querySelector(".header__menu-button");
-const menu = document.querySelector(".header__menu");
 
 const categoryTitles = {
   all: "ALL DESIGN",
@@ -30,23 +28,54 @@ filterButtons.forEach((button) => {
   });
 });
 
-function closeMenu() {
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "メニューを開く");
-  menu.classList.remove("is-open");
-  document.body.classList.remove("is-menu-open");
-}
+(() => {
+  const header = document.querySelector("#mainNav");
+  const menuButton = header?.querySelector(".header__menu-button");
+  const backdrop = header?.querySelector(".header__backdrop");
+  const menu = header?.querySelector(".header__menu");
+  const menuLinks = [...(menu?.querySelectorAll("a") || [])];
+  const desktopMedia = window.matchMedia("(min-width: 768px)");
 
-menuButton.addEventListener("click", () => {
-  const shouldOpen = menuButton.getAttribute("aria-expanded") !== "true";
-  menuButton.setAttribute("aria-expanded", String(shouldOpen));
-  menuButton.setAttribute("aria-label", shouldOpen ? "メニューを閉じる" : "メニューを開く");
-  menu.classList.toggle("is-open", shouldOpen);
-  document.body.classList.toggle("is-menu-open", shouldOpen);
-});
+  if (!header || !menuButton || !backdrop || !menu) return;
 
-menu.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeMenu));
+  const setMenuState = (isOpen, returnFocus = false) => {
+    header.classList.toggle("is-menu-open", isOpen);
+    document.body.classList.toggle("is-menu-open", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+    menuButton.setAttribute("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
 
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 480) closeMenu();
-});
+    if (!isOpen && returnFocus) {
+      menuButton.focus({ preventScroll: true });
+    }
+  };
+
+  menuButton.addEventListener("click", () => {
+    setMenuState(!header.classList.contains("is-menu-open"));
+  });
+
+  backdrop.addEventListener("click", () => {
+    setMenuState(false, true);
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      setMenuState(false);
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && header.classList.contains("is-menu-open")) {
+      setMenuState(false, true);
+    }
+  });
+
+  const closeMenuOnDesktop = (event) => {
+    if (event.matches) setMenuState(false);
+  };
+
+  if (desktopMedia.addEventListener) {
+    desktopMedia.addEventListener("change", closeMenuOnDesktop);
+  } else {
+    desktopMedia.addListener(closeMenuOnDesktop);
+  }
+})();
