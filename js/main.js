@@ -173,6 +173,58 @@
 })();
 
 (() => {
+  const header = document.querySelector('#mainNav');
+  const menuButton = header?.querySelector('.header__menu-button');
+  const backdrop = header?.querySelector('.header__backdrop');
+  const menu = header?.querySelector('.header__menu');
+  const menuLinks = [...(menu?.querySelectorAll('a[href^="#"]') || [])];
+  const desktopMedia = window.matchMedia('(min-width: 768px)');
+
+  if (!header || !menuButton || !backdrop || !menu) return;
+
+  const setMenuState = (isOpen, returnFocus = false) => {
+    header.classList.toggle('is-menu-open', isOpen);
+    document.body.classList.toggle('is-menu-open', isOpen);
+    menuButton.setAttribute('aria-expanded', String(isOpen));
+    menuButton.setAttribute('aria-label', isOpen ? 'メニューを閉じる' : 'メニューを開く');
+
+    if (!isOpen && returnFocus) {
+      menuButton.focus({ preventScroll: true });
+    }
+  };
+
+  menuButton.addEventListener('click', () => {
+    setMenuState(!header.classList.contains('is-menu-open'));
+  });
+
+  backdrop.addEventListener('click', () => {
+    setMenuState(false, true);
+  });
+
+  menuLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      setMenuState(false);
+    });
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && header.classList.contains('is-menu-open')) {
+      setMenuState(false, true);
+    }
+  });
+
+  const closeMenuOnDesktop = (event) => {
+    if (event.matches) setMenuState(false);
+  };
+
+  if (desktopMedia.addEventListener) {
+    desktopMedia.addEventListener('change', closeMenuOnDesktop);
+  } else {
+    desktopMedia.addListener(closeMenuOnDesktop);
+  }
+})();
+
+(() => {
   const works = document.querySelector('.works');
   const cards = [...document.querySelectorAll('.website-card')];
 

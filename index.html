@@ -16,7 +16,14 @@
 
 <body>
   <header class="header" id="mainNav">
-    <nav aria-label="メインナビゲーション">
+    <button class="header__menu-button" type="button" aria-controls="mainMenu" aria-expanded="false"
+      aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="header__backdrop" type="button" aria-label="メニューを閉じる" tabindex="-1"></button>
+    <nav class="header__menu" id="mainMenu" aria-label="メインナビゲーション">
       <ul class="header__nav">
         <li><a href="#top">TOP</a></li>
         <li><a href="#works">WORKS</a></li>

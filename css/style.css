@@ -34,6 +34,11 @@ body {
   color: var(--ink);
   font-family: "Inter", "Noto Sans JP", sans-serif;
 }
+@media screen and (max-width: 767px) {
+  body.is-menu-open {
+    overflow: hidden;
+  }
+}
 
 .pattern-bg {
   background-color: #fff;
@@ -103,9 +108,138 @@ button {
 }
 @media screen and (max-width: 767px) {
   .header {
+    height: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+.header__menu-button {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .header__menu-button {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 3;
+    display: flex;
+    width: 54px;
     height: 54px;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 0 12px;
+    gap: 5px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--blue);
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.25s ease;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__menu-button:hover, .header__menu-button:focus-visible {
+    transform: scale(1.08);
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__menu-button span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 0.3s ease, opacity 0.2s ease;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header.is-menu-open .header__menu-button span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .header.is-menu-open .header__menu-button span:nth-child(2) {
+    opacity: 0;
+  }
+  .header.is-menu-open .header__menu-button span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+.header__backdrop {
+  display: none;
+}
+@media screen and (max-width: 767px) {
+  .header__backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    padding: 0;
+    border: 0;
+    background: rgba(0, 10, 90, 0.16);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    cursor: default;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header.is-menu-open .header__backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 0s;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__menu {
+    position: relative;
+    isolation: isolate;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    display: block;
+    width: min(70vw, 280px);
+    height: 100vh;
+    height: 100dvh;
+    padding: 100px 24px 40px;
+    overflow-y: auto;
+    background: radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%), linear-gradient(120deg, #f9f9f7, #f2f2f2);
+    color: var(--ink);
+    overscroll-behavior: contain;
+    transform: translateX(105%);
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), visibility 0s linear 0.4s;
+  }
+  .header__menu::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.7'/%3E%3C/svg%3E");
+    background-size: 80px 80px;
+    content: "";
+    filter: contrast(180%);
+    mix-blend-mode: multiply;
+    opacity: 0.44;
+    pointer-events: none;
+  }
+  .header__menu > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header.is-menu-open .header__menu {
+    transform: translateX(0);
+    visibility: visible;
+    transition-delay: 0s;
   }
 }
 .header__nav {
@@ -117,7 +251,12 @@ button {
 }
 @media screen and (max-width: 767px) {
   .header__nav {
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+  }
+  .header__nav li:first-child {
+    display: none;
   }
 }
 .header__nav a {
@@ -128,7 +267,7 @@ button {
 }
 @media screen and (max-width: 767px) {
   .header__nav a {
-    font-size: 10px;
+    font-size: 26px;
   }
 }
 .header__nav a::after {
@@ -146,6 +285,11 @@ button {
 .header__nav a:hover::after, .header__nav a:focus-visible::after {
   transform: scaleX(1);
   transform-origin: left;
+}
+@media screen and (max-width: 767px) {
+  .header__nav a::after {
+    display: none;
+  }
 }
 
 .hero {
@@ -1406,6 +1550,7 @@ button {
   -o-object-fit: contain;
      object-fit: contain;
 }
+
 @-webkit-keyframes skillArrowLoopPrev {
   0% {
     opacity: 1;
