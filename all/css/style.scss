@@ -43,6 +43,8 @@ $page-noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http
     z-index: 0;
     background-image: $noise-bg;
     background-size: $size $size;
+    background-attachment: fixed;
+    background-position: 0 0;
     content: "";
     filter: contrast(180%);
     mix-blend-mode: multiply;
@@ -123,6 +125,9 @@ button {
   background:
     radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
     linear-gradient(120deg, #f9f9f7, #f2f2f2);
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-size: 100vw 100vh;
   border-bottom: 1px solid #8797ff;
   color: var(--ink);
   -webkit-backdrop-filter: blur(10px);
@@ -338,6 +343,9 @@ button {
   background:
     radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
     linear-gradient(120deg, #f9f9f7, #f2f2f2);
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-size: 100vw 100vh;
 
   @media screen and (min-width: 768px) {
     padding-top: 104px;
@@ -370,17 +378,15 @@ button {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px 15px;
-    margin-top: 26px;
+    margin-top: 30px;
 
     @media screen and (min-width: 768px) {
       gap: 28px 30px;
-      margin-top: 33px;
     }
 
     @include narrow {
       grid-template-columns: 1fr;
       gap: 26px;
-      margin-top: 33px;
     }
   }
 }
@@ -389,11 +395,11 @@ button {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  margin-top: 14px;
+  margin-top: 20px;
 
   @media screen and (min-width: 768px) {
     gap: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   @include narrow {
@@ -405,7 +411,7 @@ button {
 .filter {
   display: inline-flex;
   min-width: 84px;
-  height: 22px;
+  height: 24px;
   align-items: center;
   justify-content: center;
   padding: 0 14px;
@@ -437,7 +443,7 @@ button {
     min-width: 0;
     height: 28px;
     padding-inline: 10px;
-    font-size: 9px;
+    font-size: 11px;
   }
 }
 
@@ -674,7 +680,12 @@ button {
   @include noise(0.44, 80px);
 
   width: 100%;
-  background: #f8f8f7;
+  background:
+    radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
+    linear-gradient(120deg, #f9f9f7, #f2f2f2);
+  background-attachment: fixed;
+  background-position: 0 0;
+  background-size: 100vw 100vh;
   color: var(--ink);
 
   &__inner {
