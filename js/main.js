@@ -64,6 +64,121 @@
 })();
 
 (() => {
+  const recordArt = document.querySelector('.record-art');
+
+  if (!recordArt || !window.gsap) return;
+
+  const gsap = window.gsap;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const noteTop = recordArt.querySelector('.record-art__part--note-top');
+  const noteBottom = recordArt.querySelector('.record-art__part--note-bottom');
+  const sparkles = [...recordArt.querySelectorAll([
+    '.record-art__part--sparkle-left',
+    '.record-art__part--sparkle-bottom',
+    '.record-art__part--sparkle-small'
+  ].join(','))];
+
+  const startNoteMotion = () => {
+    if (!noteTop || !noteBottom) return;
+
+    gsap.set([noteTop, noteBottom], {
+      transformOrigin: '50% 60%',
+      willChange: 'transform'
+    });
+
+    [noteTop, noteBottom].forEach((note, index) => {
+      const direction = index === 0 ? 1 : -1;
+
+      gsap.timeline({
+        delay: index * 0.45,
+        repeat: -1,
+        repeatDelay: 2.3,
+        defaults: {
+          duration: 0.2,
+          ease: 'sine.inOut'
+        }
+      })
+        .to(note, {
+          x: 9 * direction,
+          rotation: 5 * direction
+        })
+        .to(note, {
+          x: -6 * direction,
+          rotation: -3 * direction
+        })
+        .to(note, {
+          x: 0,
+          rotation: 0,
+          duration: 0.3,
+          ease: 'back.out(1.6)'
+        });
+    });
+  };
+
+  const startSparkleMotion = () => {
+    if (!sparkles.length) return;
+
+    gsap.set(sparkles, {
+      transformOrigin: '50% 50%',
+      willChange: 'transform, opacity'
+    });
+
+    sparkles.forEach((sparkle, index) => {
+      gsap.timeline({
+        delay: index * 0.28,
+        repeat: -1,
+        repeatDelay: 1.4
+      })
+        .to(sparkle, {
+          scale: 1.24,
+          duration: 0.45,
+          ease: 'sine.inOut'
+        })
+        .to(sparkle, {
+          scale: 0.72,
+          opacity: 0.58,
+          duration: 0.4,
+          ease: 'sine.inOut'
+        })
+        .to(sparkle, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.35,
+          ease: 'back.out(1.7)'
+        });
+    });
+  };
+
+  if (reduceMotion.matches) {
+    gsap.set(recordArt, { clearProps: 'all' });
+    return;
+  }
+
+  gsap.set(recordArt, {
+    transformOrigin: '50% 50%',
+    willChange: 'transform, opacity'
+  });
+
+  gsap.timeline({
+    delay: 0.3,
+    defaults: {
+      duration: 1.05,
+      ease: 'back.out(1.8)'
+    }
+  }).from(recordArt, {
+    scale: 0,
+    opacity: 0,
+    onComplete: () => {
+      gsap.set(recordArt, {
+        clearProps: 'transform,transformOrigin,opacity,willChange'
+      });
+      startNoteMotion();
+      startSparkleMotion();
+    }
+  });
+})();
+
+(() => {
   const topCloud = document.querySelector('.hero__cloud--top');
   const bottomCloud = document.querySelector('.hero__cloud--bottom');
 
