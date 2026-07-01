@@ -418,11 +418,51 @@
   const name = content.querySelector('.about__name');
   const textLines = [...content.querySelectorAll('p span')];
   const targets = [heading, name, ...textLines].filter(Boolean);
+  const sparkles = [...about.querySelectorAll([
+    '.about__decoration--sparkle-bottom',
+    '.about__decoration--sparkle-right'
+  ].join(','))];
+  let sparkleMotionStarted = false;
 
   if (reduceMotion.matches) {
-    gsap.set(targets, { clearProps: 'all' });
+    gsap.set([...targets, ...sparkles], { clearProps: 'all' });
     return;
   }
+
+  const startSparkleMotion = () => {
+    if (sparkleMotionStarted || !sparkles.length) return;
+
+    sparkleMotionStarted = true;
+    gsap.set(sparkles, {
+      transformOrigin: '50% 50%',
+      willChange: 'transform, opacity'
+    });
+
+    sparkles.forEach((sparkle, index) => {
+      gsap.timeline({
+        delay: index * 0.4,
+        repeat: -1,
+        repeatDelay: 1.6
+      })
+        .to(sparkle, {
+          scale: 1.25,
+          duration: 0.45,
+          ease: 'sine.inOut'
+        })
+        .to(sparkle, {
+          scale: 0.76,
+          opacity: 0.58,
+          duration: 0.4,
+          ease: 'sine.inOut'
+        })
+        .to(sparkle, {
+          scale: 1,
+          opacity: 1,
+          duration: 0.35,
+          ease: 'back.out(1.7)'
+        });
+    });
+  };
 
   const timeline = gsap.timeline({ paused: true });
 
@@ -444,6 +484,8 @@
     if (!timeline.isActive() && timeline.progress() === 0) {
       timeline.play();
     }
+
+    startSparkleMotion();
   };
 
   if (window.ScrollTrigger) {
