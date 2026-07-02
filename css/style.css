@@ -1267,7 +1267,7 @@ button {
   .about__inner {
     min-height: auto;
     grid-template-columns: 1fr;
-    padding: 70px 24px 50px;
+    padding: 70px 10px 50px;
   }
 }
 .about__visual {
@@ -1277,6 +1277,10 @@ button {
   align-items: flex-end;
   justify-content: center;
   align-self: center;
+}
+.about__arch-wrap {
+  position: relative;
+  flex: 0 0 auto;
 }
 .about__arch {
   display: flex;
@@ -1305,12 +1309,12 @@ button {
 .about__content {
   position: relative;
   z-index: 4;
-  padding: 0 28px 0 18px;
+  padding: 0 4px 0 18px;
 }
 @media screen and (max-width: 767px) {
   .about__content {
     order: -1;
-    padding: 0 0 30px;
+    padding: 0 0 30px 14px;
   }
 }
 .about__content h2 {
@@ -1328,10 +1332,14 @@ button {
   }
 }
 .about__content p {
-  margin: 0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 800;
-  line-height: 2.45;
+  line-height: 2;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .about__content p {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 767px) {
   .about__content p {
@@ -1339,11 +1347,17 @@ button {
   }
 }
 .about__content p span {
-  padding: 6px;
-  margin-top: 2px;
+  display: inline-block;
+  padding: 0 8px;
+  margin-top: 10px;
   background: #fff;
   -webkit-box-decoration-break: clone;
           box-decoration-break: clone;
+}
+@media screen and (max-width: 767px) {
+  .about__content p span {
+    padding: 0 4px;
+  }
 }
 .about__name {
   display: flex;
@@ -1363,7 +1377,7 @@ button {
 }
 .about__name em {
   font-family: var(--font-en);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 900;
 }
 .about__decoration {
@@ -1388,33 +1402,33 @@ button {
   }
 }
 .about__decoration--sparkle-bottom {
-  bottom: clamp(20px, 5vw, 57px);
-  left: 45%;
-  width: clamp(64px, 8.6vw, 90px);
-  transform: translateX(-50%);
+  right: clamp(-40px, -5vw, -18px);
+  bottom: clamp(-50px, -4.4vw, -18px);
+  left: auto;
+  width: clamp(64px, 10vw, 90px);
+  transform: none;
 }
 @media screen and (max-width: 767px) {
   .about__decoration--sparkle-bottom {
-    right: 2%;
-    bottom: 1%;
+    right: -26px;
+    bottom: -40px;
     left: auto;
-    width: clamp(50px, 16vw, 68px);
-    transform: none;
+    width: clamp(50px, 18vw, 68px);
   }
 }
 .about__decoration--sparkle-right {
-  top: clamp(28px, 2.4vw, 10px);
-  left: clamp(80px, 16vw, 80px);
+  top: clamp(32px, 2.4vw, -30px);
+  left: clamp(-28px, -2.4vw, -18px);
   right: auto;
-  width: clamp(64px, 9.6vw, 90px);
+  width: clamp(64px, 10vw, 90px);
 }
 @media screen and (max-width: 767px) {
   .about__decoration--sparkle-right {
-    top: 16px;
+    top: 18px;
     right: auto;
     bottom: auto;
-    left: -6px;
-    width: clamp(50px, 16vw, 68px);
+    left: 14px;
+    width: clamp(50px, 20vw, 68px);
   }
 }
 .about__decoration--right {
@@ -1425,7 +1439,7 @@ button {
 @media screen and (max-width: 767px) {
   .about__decoration--right {
     bottom: 12px;
-    left: -26px;
+    left: -24px;
     width: clamp(110px, 38vw, 150px);
   }
 }
@@ -1535,6 +1549,12 @@ button {
   -o-object-fit: contain;
      object-fit: contain;
   transform: translateZ(0);
+  margin-left: 14px;
+}
+@media screen and (max-width: 767px) {
+  .skill-card img {
+    margin-left: 16px;
+  }
 }
 .skill-card h3 {
   margin: 4px 0 20px;

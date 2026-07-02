@@ -1199,7 +1199,7 @@ button {
     @include sp {
       min-height: auto;
       grid-template-columns: 1fr;
-      padding: 70px 24px 50px;
+      padding: 70px 10px 50px;
     }
   }
 
@@ -1210,6 +1210,11 @@ button {
     align-items: flex-end;
     justify-content: center;
     align-self: center;
+  }
+
+  &__arch-wrap {
+    position: relative;
+    flex: 0 0 auto;
   }
 
   &__arch {
@@ -1242,11 +1247,11 @@ button {
   &__content {
     position: relative;
     z-index: 4;
-    padding: 0 28px 0 18px;
+    padding: 0 4px 0 18px;
 
     @include sp {
       order: -1;
-      padding: 0 0 30px;
+      padding: 0 0 30px 14px;
     }
 
     h2 {
@@ -1264,20 +1269,28 @@ button {
     }
 
     p {
-      margin: 0;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 800;
-      line-height: 2.45;
+      line-height: 2;
+
+      @include tab {
+        font-size: 16px;
+      }
 
       @include sp {
         font-size: 15px;
       }
 
       span {
-        padding: 6px;
-        margin-top: 2px;
+        display: inline-block;
+        padding: 0 8px;
+        margin-top: 10px;
         background: #fff;
         box-decoration-break: clone;
+
+        @include sp {
+          padding: 0 4px;
+        }
       }
     }
 
@@ -1301,7 +1314,7 @@ button {
 
     em {
       font-family: var(--font-en);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 900;
     }
   }
@@ -1326,32 +1339,32 @@ button {
     }
 
     &--sparkle-bottom {
-      bottom: clamp(20px, 5vw, 57px);
-      left: 45%;
-      width: clamp(64px, 8.6vw, 90px);
-      transform: translateX(-50%);
+      right: clamp(-40px, -5vw, -18px);
+      bottom: clamp(-50px, -4.4vw, -18px);
+      left: auto;
+      width: clamp(64px, 10vw, 90px);
+      transform: none;
 
       @include sp {
-        right: 2%;
-        bottom: 1%;
+        right: -26px;
+        bottom: -40px;
         left: auto;
-        width: clamp(50px, 16vw, 68px);
-        transform: none;
+        width: clamp(50px, 18vw, 68px);
       }
     }
 
     &--sparkle-right {
-      top: clamp(28px, 2.4vw, 10px);
-      left: clamp(80px, 16vw, 80px);
+      top: clamp(32px, 2.4vw, -30px);
+      left: clamp(-28px, -2.4vw, -18px);
       right: auto;
-      width: clamp(64px, 9.6vw, 90px);
+      width: clamp(64px, 10vw, 90px);
 
       @include sp {
-        top: 16px;
+        top: 18px;
         right: auto;
         bottom: auto;
-        left: -6px;
-        width: clamp(50px, 16vw, 68px);
+        left: 14px;
+        width: clamp(50px, 20vw, 68px);
       }
     }
 
@@ -1362,7 +1375,7 @@ button {
 
       @include sp {
         bottom: 12px;
-        left: -26px;
+        left: -24px;
         width: clamp(110px, 38vw, 150px);
       }
     }
@@ -1450,6 +1463,11 @@ button {
     backface-visibility: hidden;
     object-fit: contain;
     transform: translateZ(0);
+    margin-left: 14px;
+
+    @include sp {
+      margin-left: 16px;
+    }
   }
 
   h3 {
