@@ -1024,6 +1024,7 @@ button {
     max-width: 100%;
     margin-top: 36px;
     font-size: clamp(27px, 8vw, 42px);
+    line-height: 0.88;
   }
 
   &__line {
@@ -1518,7 +1519,7 @@ button {
     margin: 0;
     font-family: var(--font-jp);
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.75;
   }
 
@@ -1693,6 +1694,7 @@ button {
   @include sp {
     max-width: 100%;
     font-size: clamp(27px, 8vw, 42px);
+    line-height: 0.82;
   }
 
   &__line {
