@@ -399,7 +399,7 @@ button {
       width: min(calc(100% - 32px), 440px);
       min-height: max(100svh, 700px);
       margin: 0 auto;
-      padding: 120px 0 140px;
+      padding: clamp(190px, 52vw, 300px) 0 140px;
       grid-template-columns: minmax(0, 1fr);
       align-content: center;
       gap: clamp(24px, 5vh, 36px);
@@ -546,30 +546,19 @@ button {
     height: auto;
 
     &--top {
-      top: 30px;
+      top: min(80px, calc(50% - 390px));
       left: -240px;
       width: 900px;
 
       @include tab {
-        top: 30px;
         left: -280px;
         width: min(120vw, 1000px);
       }
 
-      @include tab-wide-short {
-        top: 40px;
-        left: -140px;
-        width: min(80vw, 600px);
-      }
-
       @include sp {
-        top: -40px;
+        top: 20px;
         left: clamp(-230px, -60vw, -42px);
-        width: min(140vw, 840px);
-      }
-
-      @include sp-wide-short {
-        top: -90px;
+        width: min(140vw, 860px);
       }
     }
 
