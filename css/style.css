@@ -1195,10 +1195,16 @@ button {
   }
 }
 .banner-card img {
+  display: block;
   width: 100%;
-  aspect-ratio: 300/250;
+  aspect-ratio: 340/250;
   -o-object-fit: cover;
      object-fit: cover;
+}
+.banner-card--wide img {
+  background-color: #f8eee8;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .banner-card h3 {
   margin: 10px 0 8px;

@@ -1147,9 +1147,17 @@ button {
   }
 
   img {
+    display: block;
     width: 100%;
-    aspect-ratio: 300 / 250;
+    aspect-ratio: 340 / 250;
     object-fit: cover;
+  }
+
+  &--wide {
+    img {
+      background-color: #f8eee8;
+      object-fit: contain;
+    }
   }
 
   h3 {
