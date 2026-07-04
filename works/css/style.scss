@@ -196,6 +196,27 @@ body {
       margin-inline: auto;
       object-position: center;
     }
+
+    &--banner-pair {
+      width: min(1040px, 100%);
+      gap: clamp(14px, 2.5vw, 28px);
+
+      img {
+        width: 0;
+        min-width: 0;
+        flex: 1 1 0;
+        margin-inline: 0;
+      }
+
+      @include sp {
+        flex-direction: column;
+        gap: 14px;
+
+        img {
+          width: 100%;
+        }
+      }
+    }
   }
 
   @include sp {

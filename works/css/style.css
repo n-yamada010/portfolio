@@ -148,6 +148,25 @@ body::before {
   -o-object-position: center;
      object-position: center;
 }
+.project__mockup--banner-pair {
+  width: min(1040px, 100%);
+  gap: clamp(14px, 2.5vw, 28px);
+}
+.project__mockup--banner-pair img {
+  width: 0;
+  min-width: 0;
+  flex: 1 1 0;
+  margin-inline: 0;
+}
+@media screen and (max-width: 767px) {
+  .project__mockup--banner-pair {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .project__mockup--banner-pair img {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 767px) {
   .project__tags {
     gap: 12px;

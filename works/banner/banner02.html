@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web designer Niina Yamada's portfolio site">
+  <title>Niina Yamada Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="header" id="mainNav">
+    <button class="header__menu-button" type="button" aria-controls="mainMenu" aria-expanded="false"
+      aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="header__backdrop" type="button" aria-label="メニューを閉じる" tabindex="-1"></button>
+    <nav class="header__menu" id="mainMenu" aria-label="メインナビゲーション">
+      <ul class="header__nav">
+        <li><a href="../../index.html#top">TOP</a></li>
+        <li><a href="../../index.html#works">WORKS</a></li>
+        <li><a href="../../index.html#about">ABOUT</a></li>
+        <li><a href="../../index.html#skills">SKILL</a></li>
+        <li><a href="../../index.html#profile">PROFILE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <div class="work-detail__inner">
+      <section class="project" aria-labelledby="project-title">
+        <div class="project__heading">
+          <h1 class="project__title" id="project-title">道案内動画のサムネイルバナー</h1>
+
+          <ul class="project__tags" aria-label="担当領域">
+            <li>Design</li>
+          </ul>
+        </div>
+
+        <figure class="project__mockup project__mockup--banner-pair">
+          <img src="img/banner_work02a.png" alt="東中野駅東口からテラハウスICAまでの道案内動画サムネイル" width="1280" height="720">
+          <img src="img/banner_work02b.png" alt="東中野駅西口からテラハウスICAまでの道案内動画サムネイル" width="1280" height="720">
+        </figure>
+      </section>
+
+      <section class="brief" aria-label="制作概要">
+        <dl class="brief__list">
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">概要</dt>
+            <dd>
+	職業訓練校「専門学校東京テクニカルカレッジ テラハウスICA」のWEBサイトに掲載するための道案内動画のサムネイルバナーを制作しました。 東中野駅「東口」と「西口」それぞれからのルートに対応した2種類のバナーを作成しています。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">目的</dt>
+            <dd>
+              テラハウスICAでの職業訓練受講を検討している方が、校舎までのアクセス方法を理解できるよう、<br>
+動画視聴を促す視認性の高いバナーを制作する。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">ターゲット</dt>
+            <dd>
+              テラハウスICAでの職業訓練受講を検討している初めて校舎を訪れる人。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">制作にあたって</dt>
+            <dd>
+初めての訪問でも親しみやすく安心感を持てるよう、明快でシンプルなデザインを心がけました。<br>
+テキストには縁取りを施して視認性を確保し、グラデーションで視覚的アクセントを追加。<br>
+東中野駅「東口」と「西口」の実際の写真を背景に使い、動画の違いが一目で伝わる構成にしています。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">制作期間</dt>
+            <dd>
+              5時間
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">使用したツール</dt>
+            <dd>Photoshop</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="more-about-me" href="../../all/index-all.html" aria-label="すべての制作実績を見る">
+        <span class="more-about-me__line more-about-me__line--main">
+          <span class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span>
+          <span class="more-about-me__arrows" aria-hidden="true"><span></span></span>
+        </span>
+        <span class="more-about-me__line more-about-me__line--outline" aria-hidden="true"><span
+            class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span></span>
+        <span class="more-about-me__line more-about-me__line--outline" aria-hidden="true"><span
+            class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span></span>
+      </a>
+      <small>ALL RIGHTS RESERVED © NIINA YAMADA</small>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+
+</html>
