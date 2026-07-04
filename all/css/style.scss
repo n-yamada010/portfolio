@@ -60,6 +60,20 @@ $page-noise-bg: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http
   }
 }
 
+.pc-only {
+  @include sp {
+    display: none !important;
+  }
+}
+
+.sp-only {
+  display: none !important;
+
+  @include sp {
+    display: block !important;
+  }
+}
+
 *,
 *::before,
 *::after {

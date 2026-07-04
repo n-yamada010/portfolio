@@ -1,5 +1,25 @@
 @charset "UTF-8";
 
+@mixin sp() {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+.pc-only {
+  @include sp {
+    display: none !important;
+  }
+}
+
+.sp-only {
+  display: none !important;
+
+  @include sp {
+    display: block !important;
+  }
+}
+
 *,
 *::before,
 *::after {

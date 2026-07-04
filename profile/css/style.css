@@ -1,3 +1,18 @@
+@media screen and (max-width: 767px) {
+  .pc-only {
+    display: none !important;
+  }
+}
+
+.sp-only {
+  display: none !important;
+}
+@media screen and (max-width: 767px) {
+  .sp-only {
+    display: block !important;
+  }
+}
+
 *,
 *::before,
 *::after {
