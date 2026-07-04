@@ -337,6 +337,13 @@ body {
     background: $placeholder;
   }
 
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+  }
+
   @media (max-width: 900px) {
     &__content {
       gap: 34px;

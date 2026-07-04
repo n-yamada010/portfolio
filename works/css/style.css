@@ -266,6 +266,12 @@ body::before {
   width: 100%;
   background: #d7d7d7;
 }
+.designs__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+}
 @media (max-width: 900px) {
   .designs__content {
     gap: 34px;
