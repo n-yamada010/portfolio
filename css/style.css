@@ -1037,6 +1037,13 @@ button {
     min-height: auto;
     padding: 0 14px 65px;
   }
+  .banners .section-title {
+    gap: clamp(8px, 3vw, 16px);
+    font-size: clamp(36px, 12vw, 46px);
+  }
+  .banners .sparkle-line {
+    width: clamp(88px, 30vw, 130px);
+  }
 }
 
 .banner-grid {
@@ -1051,8 +1058,10 @@ button {
 }
 @media screen and (max-width: 767px) {
   .banner-grid {
+    width: 100%;
     grid-template-columns: 1fr;
     gap: 22px;
+    margin-inline: auto;
   }
 }
 
@@ -1077,7 +1086,7 @@ button {
   .view-all-works {
     max-width: 100%;
     margin-top: 36px;
-    font-size: clamp(27px, 8vw, 42px);
+    font-size: clamp(23px, 7.4vw, 42px);
     line-height: 0.88;
   }
 }
@@ -1099,6 +1108,11 @@ button {
   -webkit-text-stroke: 2px transparent;
   paint-order: stroke fill;
 }
+@media screen and (max-width: 767px) {
+  .view-all-works__line--main {
+    gap: clamp(8px, 2.6vw, 12px);
+  }
+}
 .view-all-works__line--outline {
   color: var(--blue);
   -webkit-text-fill-color: var(--blue);
@@ -1119,6 +1133,12 @@ button {
   flex: 0 0 auto;
   color: #fff;
   transition: transform 0.3s ease;
+}
+@media screen and (max-width: 767px) {
+  .view-all-works__arrows {
+    width: clamp(42px, 13vw, 50px);
+    height: clamp(24px, 7vw, 28px);
+  }
 }
 .view-all-works__arrows::before, .view-all-works__arrows::after,
 .view-all-works__arrows > span {
@@ -1206,7 +1226,10 @@ button {
 }
 @media screen and (max-width: 767px) {
   .banner-card {
+    width: 100%;
+    max-width: 100%;
     min-height: 360px;
+    margin-inline: auto;
   }
 }
 .banner-card img {

@@ -990,6 +990,15 @@ button {
   @include sp {
     min-height: auto;
     padding: 0 14px 65px;
+
+    .section-title {
+      gap: clamp(8px, 3vw, 16px);
+      font-size: clamp(36px, 12vw, 46px);
+    }
+
+    .sparkle-line {
+      width: clamp(88px, 30vw, 130px);
+    }
   }
 }
 
@@ -1003,8 +1012,10 @@ button {
   }
 
   @include sp {
+    width: 100%;
     grid-template-columns: 1fr;
     gap: 22px;
+    margin-inline: auto;
   }
 }
 
@@ -1026,7 +1037,7 @@ button {
   @include sp {
     max-width: 100%;
     margin-top: 36px;
-    font-size: clamp(27px, 8vw, 42px);
+    font-size: clamp(23px, 7.4vw, 42px);
     line-height: 0.88;
   }
 
@@ -1045,6 +1056,10 @@ button {
       -webkit-text-fill-color: #fff;
       -webkit-text-stroke: 2px transparent;
       paint-order: stroke fill;
+
+      @include sp {
+        gap: clamp(8px, 2.6vw, 12px);
+      }
     }
 
     &--outline {
@@ -1071,6 +1086,11 @@ button {
     flex: 0 0 auto;
     color: #fff;
     transition: transform 0.3s ease;
+
+    @include sp {
+      width: clamp(42px, 13vw, 50px);
+      height: clamp(24px, 7vw, 28px);
+    }
 
     &::before,
     &::after,
@@ -1157,7 +1177,10 @@ button {
   transition: transform 0.25s ease;
 
   @include sp {
+    width: 100%;
+    max-width: 100%;
     min-height: 360px;
+    margin-inline: auto;
   }
 
   img {
