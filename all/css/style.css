@@ -452,6 +452,7 @@ button {
   position: relative;
   overflow: hidden;
   aspect-ratio: 340/250;
+  background: #fff;
 }
 .work-card__visual--web {
   aspect-ratio: 500/300;
@@ -459,8 +460,8 @@ button {
 .work-card__visual img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: contain;
+     object-fit: contain;
   transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1), opacity 200ms ease;
 }
 .work-card:hover .work-card__visual img, .work-card a:focus-visible .work-card__visual img {
