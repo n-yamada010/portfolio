@@ -1,0 +1,373 @@
+@charset "utf-8";
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+
+*,
+::before,
+::after {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+	scroll-padding-top: 60px;
+}
+
+html,
+body {
+	overflow-x: hidden;
+}
+
+img {
+	vertical-align: top;
+	max-width: 100%;
+	height: auto;
+}
+
+body {
+	font-family: 'Noto Sans JP', sans-serif;
+	line-height: 1.8;
+	font-size: 16px;
+	color: #082438;
+}
+
+a {
+	color: #082438;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+ul {
+	list-style-type: none;
+}
+
+nav {
+	margin: 0;
+}
+
+header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding: 0 calc((100% - 1100px) / 2);
+	font-size: 18px;
+	font-weight: 600;
+	background-color: #F6F1ED;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+	height: 70px;
+}
+
+.menu {
+	display: flex;
+	align-items: center;
+}
+
+.menu a {
+	display: block;
+	padding: 10px 20px;
+	text-align: center;
+	line-height: 2.4;
+}
+
+.menu a:hover {
+	text-decoration: none;
+}
+
+.textlink {
+	transition: color 0.5s;
+}
+
+.textlink:hover {
+	color: #659b91;
+}
+
+.container {
+	max-width: 1100px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+section {
+	margin-bottom: 60px;
+}
+
+.border-radius {
+	width: 100px;
+	height: 30px;
+	padding: 0px 10px;
+	background-color: #659b91;
+	border-radius: 100vh;
+	color: #fff;
+	text-align: center;
+}
+
+.border-radius01 {
+	width: 140px;
+}
+
+footer {
+	padding: 30px 0;
+	background-color: #003C3F;
+	font-weight: 600;
+	font-size: 18px;
+}
+
+footer .menu {
+	margin-bottom: 150px;
+	justify-content: center;
+}
+
+footer .menu a {
+	color: #fff;
+}
+
+.copyright {
+	font-size: 14px;
+	color: #fff;
+	text-align: center;
+}
+
+/* ここからバナー作品*/
+.work-top {
+	padding-top: 100px;
+	margin-bottom: 0px;
+}
+
+.work-title {
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.work-top p,
+ul {
+	margin: 8px 0;
+}
+
+.work-top li {
+	display: inline-block;
+	margin-right: 20px;
+}
+
+.work-img {
+	width: 50%;
+	margin: 50px auto;
+	text-align: center;
+}
+.work-img img{
+	box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, .1);
+}
+.work-img02{
+	width: 60%;
+	text-align: center;
+	margin: 50px auto;
+}
+.work-img02 img{
+	box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, .1);
+	margin-bottom: 20px;
+}
+.description {
+	margin-top: 50px;
+}
+
+.description-table th::before {
+	content: '';
+	display: inline-block;
+	content: url(../img/star.png);
+	width: 40px;
+	height: 40px;
+	margin-right: 2px;
+	background-size: contain;
+	vertical-align: middle;
+}
+
+.description-table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.description-table th,
+.description-table td {
+	padding: 20px;
+	vertical-align: baseline;
+}
+
+.description-table th {
+	font-weight: 500;
+	text-align: left;
+	width: 20%;
+	position: relative;
+}
+
+.work-area {
+	margin-top: 50px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.work-area img {
+	width: 48%;
+	height: auto;
+	margin-bottom: 30px;
+}
+
+.hidden-pc {
+	display: none;
+}
+
+@media (max-width: 767px) {
+	nav {
+		position: fixed;
+		top: 0;
+		left: 100%;
+		width: 100%;
+		height: 100%;
+		padding-top: 140px;
+		transition: 0.5s;
+		background-color: #F6F1ED;
+	}
+
+	nav .menu {
+		display: block;
+		height: 100%;
+		padding-bottom: 40px;
+		overflow: auto;
+	}
+
+	nav .menu a {
+		font-size: 30px;
+		padding: 10px 0;
+	}
+
+	header {
+		z-index: 1;
+	}
+
+	.nav-button {
+		width: 70px;
+		height: 50px;
+		margin-left: auto;
+		position: relative;
+		z-index: 1;
+	}
+
+	.nav-button span {
+		width: 30px;
+		height: 3px;
+		background-color: #333;
+		position: absolute;
+		left: 20px;
+	}
+
+	.nav-button span:nth-child(1) {
+		top: 12px;
+	}
+
+	.nav-button span:nth-child(2) {
+		top: 24px;
+	}
+
+	.nav-button span:nth-child(3) {
+		top: 36px;
+	}
+
+	.menu-open nav {
+		left: 0px;
+	}
+
+	.menu-open .nav-button span:nth-child(1) {
+		top: 23px;
+		transform: rotate(315deg);
+	}
+
+	.menu-open .nav-button span:nth-child(2) {
+		width: 0;
+		left: 50%;
+	}
+
+	.menu-open .nav-button span:nth-child(3) {
+		top: 23px;
+		transform: rotate(-315deg);
+	}
+
+	.nav-button span {
+		transition: 0.3s;
+	}
+
+	.nav-button {
+		padding: 10px 20px;
+		right: 10px;
+	}
+
+	html {
+		scroll-padding-top: 50px;
+	}
+
+	section {
+		margin-bottom: 50px;
+	}
+
+	img {
+		margin: auto;
+		width: 100%;
+	}
+
+	footer .menu {
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	footer .menu a {
+		padding-top: 2px;
+		padding-bottom: 2px;
+	}
+
+	/* ここからバナー作品*/
+	.work-img {
+		width: 90%;
+	}
+
+	.work-img02 img{
+	width: 90%;
+	}
+
+	.description-table th,
+	.description-table td {
+		display: block;
+	}
+
+	.description-table th {
+		width: 100%;
+		padding: 0px;
+		border-bottom: 1px #333 solid;
+	}
+
+	.description-table td {
+		padding-bottom: 50px;
+	}
+
+	.description-table th::after {
+		display: none;
+	}
+
+	.work-area {
+		margin-top: 0px;
+	}
+
+		.hidden-pc {
+		display: block;
+	}
+
+		.hidden-sp {
+		display: none;
+	}
+
+
+}

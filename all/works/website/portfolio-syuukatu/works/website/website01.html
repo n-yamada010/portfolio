@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Niina Yamada Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="top">
+
+	<header>
+		<div class="nav-button">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<nav>
+			<ul class="menu">
+				<li><a href="../../index.html" class="textlink">Top</a></li>
+				<li><a href="../../index.html#works" class="textlink">Works</a></li>
+				<li><a href="../../index.html#about" class="textlink">About</a></li>
+				<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+				<li><a href="../../profile.html" class="textlink">Profile</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+
+			<section class="work-top">
+				<p class="work-title">ポートフォリオサイト</p>
+				<ul>
+					<li class="border-radius">自主制作</li>
+					<li>#WEBサイト</li>
+				</ul>
+				<div class="work-img">
+					<img src="img/website_work01.png" alt="" />
+				</div>
+			</section>
+
+			<section class="description">
+				<table class="description-table">
+					<tbody>
+						<tr>
+							<th>概要</th>
+							<td>自身の経歴や制作物をまとめたポートフォリオサイトを制作しました。</td>
+						</tr>
+						<tr>
+							<th>目的</th>
+							<td>自分のスキルや実績を採用担当者に分かりやすく伝え、就職・転職活動において自分をアピールする。</td>
+						</tr>
+						<tr>
+							<th>ターゲット</th>
+							<td>採用担当者の方々</td>
+						</tr>
+						<tr>
+							<th>制作にあたって</th>
+							<td>シンプルで分かりやすいデザインを意識し、採用担当者が忙しい中でも、<br class="hidden-sp">
+								一目見ただけで直感的に私のスキルを理解してもらえるよう意識して設計しました。<br>
+								私の経歴や強み、スキルの習得レベルを掲載し、訪問者が私という人物をより詳細に理解できるような<br class="hidden-sp">
+								構成にしています。</td>
+						</tr>
+						<tr>
+							<th>デザイン</th>
+							<td>自分らしさを表現するために、柔らかく親しみやすいカラーと丸みのあるデザインを取り入れました。</td>
+						</tr>
+						<tr>
+							<th>制作期間</th>
+							<td>企画・ワイヤーフレーム 2日間<br>デザイン 2週間<br>コーディング 2週間</td>
+						</tr>
+						<tr>
+							<th>使用したツール</th>
+							<td>Photoshop / Illustrator / Procreate / DreamWeaver / Visual Studio Code</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section class="work-comp">
+				<img class="pc-comp" src="img/portfolio_pccomp.png" alt="パソコンのトップ画像" />
+				<img class="sp-comp" src="img/portfolio_spcomp.png" alt="スマートフォンのトップ画像" />
+			</section>
+
+		</div>
+	</main>
+
+	<footer>
+		<ul class="menu">
+			<li><a href="../../index.html" class="textlink">Top</a></li>
+			<li><a href="../../index.html#works" class="textlink">Works</a></li>
+			<li><a href="../../index.html#about" class="textlink">About</a></li>
+			<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+			<li><a href="../../profile.html" class="textlink">Profile</a></li>
+		</ul>
+		<p class="copyright">&copy;2025 Niina Yamada</p>
+	</footer>
+
+	<script type="text/javascript" src="../../js/jquery-3.7.1.min.js"></script>
+
+	<script>
+		//.nav-buttonのをクリックした時の設定
+		$(function () {
+			$(".nav-button").on("click", function () {
+				$("body").toggleClass("menu-open");
+			});
+			//ナビゲーション(<nav>)のをクリックした時の設定
+			$(document).on("click", ".menu-open nav", function () {
+				$(".nav-button").trigger("click");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

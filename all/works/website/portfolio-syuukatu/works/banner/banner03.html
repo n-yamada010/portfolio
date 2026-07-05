@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Niina Yamada Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="職業訓練校でwebデザインを学び、webデザイナーへの転職を目指す山田新菜のポートフォリオサイトです。">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="top">
+	<header>
+		<div class="nav-button">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<nav>
+			<ul class="menu">
+				<li><a href="../../index.html" class="textlink">Top</a></li>
+				<li><a href="../../index.html#works" class="textlink">Works</a></li>
+				<li><a href="../../index.html#about" class="textlink">About</a></li>
+				<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+				<li><a href="../../profile.html" class="textlink">Profile</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+
+			<section class="work-top">
+				<p class="work-title">架空のジムバナー</p>
+				<ul>
+					<li class="border-radius">自主制作</li>
+					<li>#バナー</li>
+				</ul>
+				<div class="work-img">
+					<img src="img/banner_work03.png" alt="ジムのバナー">
+				</div>
+			</section>
+
+			<section class="description">
+				<table class="description-table">
+					<tbody>
+						<tr>
+							<th>概要</th>
+							<td><a href="https://www.webcreatorbox.com/blog/banner-design-10" target="_blank"
+									class="textlink">バナーデザイン練習 10本ノック様</a>より、お題を拝借させていただきました。架空の案件となります。<br>
+									普段は高齢者向けのウォーキングイベントや子供向けの運動教室をしているが、本格的にスポーツに取り組む大人向けのメニューも充実させたい。
+							</td>
+						</tr>
+						<tr>
+							<th>目的</th>
+							<td>本格的にスポーツに取り組む大人向けの新メニューを効果的にPRし、認知拡大と新規入会者の獲得につなげる。</td>
+						</tr>
+						<tr>
+							<th>ターゲット</th>
+							<td>スポーツが好きで平日の仕事前後や週末も活発にトレーニングしている。<br>
+								ランニングのレースにも出場する。自己流トレーニングに限界を感じている。</td>
+						</tr>
+						<tr>
+							<th>デザイン</th>
+							<td>デザインは爽やかなブルーを基調とし、背景にはジムの写真を配置することで、<br class="hidden-sp">清潔感と本格的なトレーニング環境を演出。						
+							前景にはぼかし加工を施した男性の写真で躍動感を表現し、<br class="hidden-sp">「入会金0円」は赤で強調して視線を引くアクセントにしました。</td>
+						</tr>
+						<tr>
+							<th>制作期間</th>
+							<td>1日</td>
+						</tr>
+						<tr>
+							<th>使用したツール</th>
+							<td>Photoshop</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+		</div>
+	</main>
+
+	<footer>
+		<ul class="menu">
+			<li><a href="../../index.html" class="textlink">Top</a></li>
+			<li><a href="../../index.html#works" class="textlink">Works</a></li>
+			<li><a href="../../index.html#about" class="textlink">About</a></li>
+			<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+			<li><a href="../../profile.html" class="textlink">Profile</a></li>
+		</ul>
+		<p class="copyright">&copy;2025 Niina Yamada</p>
+	</footer>
+
+	<script type="text/javascript" src="../../js/jquery-3.7.1.min.js"></script>
+
+	<script>
+		//.nav-buttonのをクリックした時の設定
+		$(function () {
+			$(".nav-button").on("click", function () {
+				$("body").toggleClass("menu-open");
+			});
+			//ナビゲーション(<nav>)のをクリックした時の設定
+			$(document).on("click", ".menu-open nav", function () {
+				$(".nav-button").trigger("click");
+			});
+		});
+	</script>
+
+</body>
+
+</html>

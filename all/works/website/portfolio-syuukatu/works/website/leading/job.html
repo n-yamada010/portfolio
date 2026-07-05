@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Leading Company株式会社はIoT開発・WEB制作を通じて未来をつくる企業です。">
+  <title>Leading Company株式会社</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+  <link href="css/slick.css" rel="stylesheet" type="text/css">
+  <link href="css/slick-theme.css" rel="stylesheet" type="text/css">
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body id="top">
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <a href="index.html"><img src="img/rogo_black.png" alt="Leading Company株式会社 ロゴ"></a>
+      </div>
+      <div class="nav-button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul class="nav-list">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="profile.html">会社概要</a></li>
+          <li><a href="employee.html">社員の紹介</a></li>
+          <li><a href="job.html">採用情報</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <section class="job_description">
+      <h1>RECRUITMENT</h1>
+      <p class="sub_title">採用情報</p>
+      <h3>募集要項</h3>
+      <table class="table02">
+        <tbody>
+          <tr>
+            <th>募集職種</th>
+            <td>①システムエンジニア（プログラマー、システム運用、保守監視、等 総合職）<br>②Webデザイナー/マークアップデザインエンジニア</td>
+          </tr>
+          <tr>
+            <th>募集対象</th>
+            <td>※実務経験1年以上、若しくは同等のスキルを有する方は優遇。開発分野、言語、機種は問いません。</td>
+          </tr>
+          <tr>
+            <th>勤務地</th>
+            <td>東京近郊(出向先)</td>
+          </tr>
+          <tr>
+            <th>給与</th>
+            <td>経験・能力により当社規定にて優遇</td>
+          </tr>
+          <tr>
+            <th>勤務時間</th>
+            <td>標準労働時間1日8時間/休憩60分</td>
+          </tr>
+          <tr>
+            <th>休日休暇</th>
+            <td>完全週休2日制、祝日、長期休暇（夏期、年末年始）、G.W休暇、年次有給休暇、慶弔休暇</td>
+          </tr>
+          <tr>
+            <th>福利厚生</th>
+            <td>雇用保険・労災保険・厚生年金</td>
+          </tr>
+          <tr>
+            <th>応募方法</th>
+            <td>leadingcompany_recruit@abc.net</td>
+          </tr>
+          <tr>
+            <th>備考</th>
+            <td>あなたのもつスキルを使って新たなイノベーションを起こしてみたいと考えている方</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </section>
+
+  </div>
+
+  <section class="recruit">
+    <a href="contact.html"><img class="recruit_img" src="img/entry_img.png" width="1396" height="360" alt="" /></a>
+    <div class="container">
+      <p class="btn_02"><a href="contact.html"><img src="img/entry_btn.png" width="200" height="52" alt="" /></a></p>
+    </div>
+  </section>
+
+
+
+  <footer>
+
+    <div class="footer-container">
+      <div class="footer_logo">
+        <a href="#">
+          <img src="img/rogo_white.png" width="200" height="59" alt="" />
+        </a>
+      </div>
+      <div class="footer_box">
+        <div class="footer_list">
+          <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="profile.html">会社概要</a></li>
+            <li><a href="employee.html">社員の紹介</a></li>
+            <li><a href="job.html">採用情報</a></li>
+            <li><a href="contact.html">お問い合わせ</a></li>
+          </ul>
+          <ul>
+            <li><a href="index.html">プライバシーポリシー</a></li>
+            <li><a href="index.html">利用規約</a></li>
+            <li><a href="index.html">免責事項</a></li>
+            <li><a href="index.html">サイトマップ</a></li>
+          </ul>
+          <div class="footer_info">
+            <a href="#">
+              <p><img src="img/phone.png" width="210" height="52" alt="" /></p>
+            </a>
+            <p>受付時間：平日午前9時～午後5時まで<br>
+              休業日：土日・祝日・年末年始</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="copyright">Copyright &copy; 職業訓練課題</p>
+
+  </footer>
+
+  <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script>
+
+  <script>
+    //.nav-buttonのをクリックした時の設定
+    $(function () {
+      $(".nav-button").on("click", function () {
+        $("body").toggleClass("menu-open");
+      });
+      //ナビゲーション(<nav>)のをクリックした時の設定
+      $(document).on("click", ".menu-open nav", function () {
+        $(".nav-button").trigger("click");
+      });
+    });
+  </script>
+
+</body>
+
+</html>

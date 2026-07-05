@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Niina Yamada Portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body id="top">
+
+	<header>
+		<div class="nav-button">
+			<span></span>
+			<span></span>
+			<span></span>
+		</div>
+		<nav>
+			<ul class="menu">
+				<li><a href="../../index.html" class="textlink">Top</a></li>
+				<li><a href="../../index.html#works" class="textlink">Works</a></li>
+				<li><a href="../../index.html#about" class="textlink">About</a></li>
+				<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+				<li><a href="../../profile.html" class="textlink">Profile</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<main>
+		<div class="container">
+
+			<section class="work-top">
+				<p class="work-title">株式会社ラウレアソリューション様 採用LP</p>
+				<ul>
+					<li class="border-radius">学校課題</li>
+					<li>#グループ制作</li>
+					<li>#WEBサイト(デザイン)</li>
+					<li>#コンペ作品</li>
+				</ul>
+				<p><a href="front/index.html" target="_blank" class="textlink virtuality">WEBサイトはこちら</a></p>
+
+				<div class="work-img">
+					<img src="img/website_work02.png" alt="">
+				</div>
+			</section>
+
+			<section class="description">
+				<table class="description-table">
+					<tbody>
+						<tr>
+							<th>概要</th>
+							<td>職業訓練校にて、株式会社ラウレアソリューション様の採用LPサイトをグループとなって制作しました。</td>
+						</tr>
+						<tr>
+							<th>デザイン担当箇所</th>
+							<td>「ファーストビュー」と「数字で見るラウレアソリューション」以降のデザインを担当しました。</td>
+						</tr>
+						<tr>
+							<th>目的</th>
+							<td>・ホームページからの応募数が少ない<br>
+								・求人広告の出稿コストが高い<br>
+								・応募者の多くが未経験者で、経験者の確保が難しい<br>
+								上記課題をラウレアソリューション様は抱えていたことから、<br>
+								「SES営業経験者を積極的に募集していることを伝え、経験者からの応募数を増やすこと」を目的としました。</td>
+						</tr>
+						<tr>
+							<th>ターゲット</th>
+							<td>SES営業経験者、もしくはSE経験者。<br class="hidden-pc">首都圏在住の25歳〜45歳の営業経験者で、特に男性を想定。</td>
+						</tr>
+						<tr>
+							<th>制作にあたって</th>
+							<td>ラウレアソリューション様の「ゆるく自発性を重んじる」スタンスを踏まえ、<br class="hidden-sp">
+								軽やかで自由な印象を意識しつつ、チープに見えないよう背景や装飾で独自性を加えました。<br>
+								情報量の多いページでも快適に閲覧できるよう、アコーディオンやジャンプ率の高い構成でセクションの区切りを明確にしています。
+							</td>
+						</tr>
+						<tr>
+							<th>デザイン</th>
+							<td>メインカラーには青と緑を混ぜた鮮やかな水色を採用。<br>
+								白で清潔感と爽やかさを、グレーで落ち着きをプラスし、ラウレアソリューション様の特徴である
+								BtoBの堅実な事業と調和する信頼感あるデザインに仕上げました。</td>
+						</tr>
+						<tr>
+							<th>制作期間</th>
+							<td>企画・ワイヤーフレーム 1日<br>
+								デザイン 4日間
+							</td>
+						</tr>
+						<tr>
+							<th>使用したツール</th>
+							<td>Photoshop / Illustrator/ Figam</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<p><a href="front/index.html" target="_blank" class="textlink virtuality virtualit-comp">WEBサイトはこちら</a></p>
+
+			<section class="work-comp">
+				<img class="pc-comp" src="img/lausol_pccomp.png" alt="パソコンのトップ画像" />
+				<img class="sp-comp" src="img/lausol_spcomp.png" alt="スマートフォンのトップ画像" />
+			</section>
+
+		</div>
+	</main>
+
+	<footer>
+		<ul class="menu">
+			<li><a href="../../index.html" class="textlink">Top</a></li>
+			<li><a href="../../index.html#works" class="textlink">Works</a></li>
+			<li><a href="../../index.html#about" class="textlink">About</a></li>
+			<li><a href="../../index.html#skills" class="textlink">Skills</a></li>
+			<li><a href="../../profile.html" class="textlink">Profile</a></li>
+		</ul>
+		<p class="copyright">&copy;2025 Niina Yamada</p>
+	</footer>
+
+	<script type="text/javascript" src="../../js/jquery-3.7.1.min.js"></script>
+
+	<script>
+		//.nav-buttonのをクリックした時の設定
+		$(function () {
+			$(".nav-button").on("click", function () {
+				$("body").toggleClass("menu-open");
+			});
+			//ナビゲーション(<nav>)のをクリックした時の設定
+			$(document).on("click", ".menu-open nav", function () {
+				$(".nav-button").trigger("click");
+			});
+		});
+	</script>
+
+</body>
+
+</html>
