@@ -1169,19 +1169,33 @@ button {
 
   &--wide {
     img {
-      background-color: #f8eee8;
       object-fit: contain;
     }
   }
 
   h3 {
     margin: 10px 0 8px;
-    overflow: hidden;
     font-size: 16px;
     font-weight: 800;
-    letter-spacing: -0.06em;
+    overflow-x: hidden;
+    letter-spacing: 0.01em;
     text-overflow: ellipsis;
     white-space: nowrap;
+
+    &.banner-card__title {
+      &--rectangle {
+        margin-top: -0.62em;
+      }
+
+      &--wide {
+        margin-top: 0.55em;
+      }
+    }
+
+    @include sp {
+      margin: 10px 0 8px;
+      font-size: 14px;
+    }
   }
 
   &__rectangle {
