@@ -76,7 +76,7 @@ body::before {
 .work-detail__inner {
   width: min(100% - 48px, 1040px);
   margin: 0 auto;
-  padding: 90px 0 40px;
+  padding: 90px 0 100px;
 }
 @media screen and (max-width: 767px) {
   .work-detail__inner {
@@ -136,7 +136,7 @@ body::before {
 }
 .project__mockup {
   display: flex;
-  width: min(760px, 82%);
+  width: min(760px, 60%);
   justify-content: center;
   margin: 30px auto 0;
 }
@@ -183,7 +183,7 @@ body::before {
 }
 
 .brief {
-  margin-top: 80px;
+  margin-top: 70px;
 }
 .brief__list {
   display: grid;
