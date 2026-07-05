@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Web designer Niina Yamada's portfolio site">
+  <title>Niina Yamada Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans+JP:wght@100..900&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <header class="header" id="mainNav">
+    <button class="header__menu-button" type="button" aria-controls="mainMenu" aria-expanded="false"
+      aria-label="メニューを開く">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="header__backdrop" type="button" aria-label="メニューを閉じる" tabindex="-1"></button>
+    <nav class="header__menu" id="mainMenu" aria-label="メインナビゲーション">
+      <ul class="header__nav">
+        <li><a href="../../index.html#top">TOP</a></li>
+        <li><a href="../../index.html#works">WORKS</a></li>
+        <li><a href="../../index.html#about">ABOUT</a></li>
+        <li><a href="../../index.html#skills">SKILL</a></li>
+        <li><a href="../../index.html#profile">PROFILE</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="work-detail">
+    <div class="work-detail__inner">
+      <section class="project" aria-labelledby="project-title">
+        <div class="project__heading">
+          <h1 class="project__title" id="project-title">架空の子供用品の秋セールバナー</h1>
+
+          <ul class="project__tags" aria-label="担当領域">
+            <li>Design</li>
+          </ul>
+        </div>
+
+        <figure class="project__mockup">
+          <img src="img/banner_work04.jpg" alt="子供服・子供用品の秋セールバナー" width="1200" height="1200">
+        </figure>
+      </section>
+
+      <section class="brief" aria-label="制作概要">
+        <dl class="brief__list">
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">概要</dt>
+            <dd>
+              子供服・子供用品の秋セール告知を目的としたバナーを自主制作しました。<br>
+季節感のある秋モチーフと、親しみやすいイラストを組み合わせ、ファミリー層に向けて楽しくお得感が伝わるデザインにしています。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">目的</dt>
+            <dd>
+              秋物の子供服や子供用品の購入を検討しているユーザーに向けて、セール情報を分かりやすく訴求し、商品ページへの誘導や購買意欲の向上を目的としています。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">ターゲット</dt>
+            <dd>
+              20代〜40代の子育て世代の保護者。<br>
+秋冬に向けて子供服や育児用品をお得に購入したい方、かわいらしく親しみやすいデザインを好むファミリー層を想定しています。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">デザイン</dt>
+            <dd>
+秋らしさを感じられるオレンジ・ブラウン・ベージュを基調に、紅葉やどんぐり、きのこなどの季節モチーフを配置しました。
+メインコピーの「Autumn SALE」と「50%」は大きく目立たせ、セール内容が一目で伝わるようにしています。<br>
+また、やわらかいイラストや丸みのあるフォントを使用することで、子供用品・子供服らしい安心感と親しみやすさを表現しました。
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">制作期間</dt>
+            <dd>
+              3時間
+            </dd>
+          </div>
+
+          <div class="brief__item">
+            <dt><img class="brief__sparkle" src="../img/star.png" alt="" aria-hidden="true">使用したツール</dt>
+            <dd>Illustrator</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="more-about-me" href="../../all/index-all.html" aria-label="すべての制作実績を見る">
+        <span class="more-about-me__line more-about-me__line--main">
+          <span class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span>
+          <span class="more-about-me__arrows" aria-hidden="true"><span></span></span>
+        </span>
+        <span class="more-about-me__line more-about-me__line--outline" aria-hidden="true"><span
+            class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span></span>
+        <span class="more-about-me__line more-about-me__line--outline" aria-hidden="true"><span
+            class="more-about-me__text" data-text="VIEW ALL WORKS">VIEW ALL WORKS</span></span>
+      </a>
+      <small>ALL RIGHTS RESERVED © NIINA YAMADA</small>
+    </div>
+  </footer>
+
+  <script src="../../js/main.js"></script>
+</body>
+
+</html>

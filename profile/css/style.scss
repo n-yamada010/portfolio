@@ -6,6 +6,12 @@
   }
 }
 
+@mixin tab() {
+  @media screen and (min-width: 768px) and (max-width: 1100px) {
+    @content;
+  }
+}
+
 .pc-only {
   @include sp {
     display: none !important;
@@ -17,6 +23,12 @@
 
   @include sp {
     display: block !important;
+  }
+}
+
+.only-desktop {
+  @include sp {
+    display: none;
   }
 }
 
@@ -32,14 +44,16 @@ html {
 }
 
 body.profile-page {
+  --profile-surface:
+    linear-gradient(rgba(0, 0, 0, 0.015), rgba(0, 0, 0, 0.015)),
+    radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
+    linear-gradient(120deg, #f9f9f7, #f2f2f2);
   position: relative;
   isolation: isolate;
   margin: 0;
   overflow-x: hidden;
   background-color: var(--paper);
-  background-image:
-    radial-gradient(circle at 28% 36%, rgba(255, 255, 255, 0.95), transparent 24%),
-    linear-gradient(120deg, #f9f9f7, #f2f2f2);
+  background-image: var(--profile-surface);
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -55,6 +69,14 @@ body.profile-page::before {
   mix-blend-mode: multiply;
   opacity: 0.44;
   pointer-events: none;
+}
+
+.profile-page .header:not(.header--on-blue) {
+  background: var(--profile-surface);
+
+  @include sp {
+    background: transparent;
+  }
 }
 
 .profile-page img {
@@ -76,6 +98,10 @@ html:has(.profile-page) {
   font-family: var(--font-jp);
   font-size: 16px;
   font-weight: 700;
+
+  @include sp {
+    font-size: 14px;
+  }
 }
 
 .profile-page .profile-main {
@@ -84,6 +110,16 @@ html:has(.profile-page) {
   width: min(1240px, calc(100% - 80px));
   margin-inline: auto;
   padding: 150px 0 360px;
+
+  @include tab {
+    width: min(900px, calc(100% - 64px));
+    padding-top: 110px;
+  }
+
+  @include sp {
+    width: calc(100% - 40px);
+    padding: 64px 0 140px;
+  }
 }
 
 .profile-page h1,
@@ -108,6 +144,10 @@ html:has(.profile-page) {
   font-size: clamp(64px, 5.2vw, 76px);
   line-height: 1;
   text-align: center;
+
+  @include sp {
+    font-size: 52px;
+  }
 }
 
 .profile-overview {
@@ -117,6 +157,16 @@ html:has(.profile-page) {
   align-items: center;
   gap: 120px;
   margin: 60px auto 70px;
+
+  @include tab {
+    grid-template-columns: 260px minmax(0, 1fr);
+    gap: 56px;
+  }
+
+  @include sp {
+    display: block;
+    margin: 46px auto 64px;
+  }
 }
 
 .profile-portrait {
@@ -127,6 +177,17 @@ html:has(.profile-page) {
   justify-content: center;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.9);
+
+  @include tab {
+    width: 260px;
+    height: 280px;
+  }
+
+  @include sp {
+    width: min(260px, 100%);
+    height: 280px;
+    margin-inline: auto !important;
+  }
 }
 
 .profile-portrait img {
@@ -138,6 +199,10 @@ html:has(.profile-page) {
 
 .profile-copy {
   align-self: center;
+
+  @include sp {
+    margin-top: 44px;
+  }
 }
 
 .profile-name {
@@ -146,12 +211,22 @@ html:has(.profile-page) {
   gap: 20px;
   margin-bottom: 20px !important;
   line-height: 1;
+
+  @include sp {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-bottom: 24px !important;
+  }
 }
 
 .profile-name strong {
   font-size: 30px;
   font-weight: 900;
   letter-spacing: 0.08em;
+
+  @include sp {
+    font-size: 25px;
+  }
 }
 
 .profile-name span {
@@ -163,6 +238,14 @@ html:has(.profile-page) {
 .profile-lead {
   font-size: 15px;
   line-height: 1.42;
+
+  @include tab {
+    font-size: 13px;
+  }
+
+  @include sp {
+    font-size: 13px;
+  }
 }
 
 .profile-license {
@@ -192,6 +275,10 @@ html:has(.profile-page) {
 .profile-section-title--en {
   font-size: clamp(64px, 5vw, 74px);
   line-height: 1;
+
+  @include sp {
+    font-size: 52px;
+  }
 }
 
 .profile-section-title--jp {
@@ -199,16 +286,34 @@ html:has(.profile-page) {
   font-weight: 900;
   letter-spacing: 0.02em;
   line-height: 1.25;
+
+  @include sp {
+    font-size: 30px;
+  }
 }
 
 .strength-section {
   padding: 54px 105px 94px;
+
+  @include tab {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+
+  @include sp {
+    padding: 42px 0 68px;
+  }
 }
 
 .strength-list {
   display: grid;
   gap: 42px;
   margin-top: 78px;
+
+  @include sp {
+    gap: 54px;
+    margin-top: 54px;
+  }
 }
 
 .strength-card {
@@ -216,11 +321,20 @@ html:has(.profile-page) {
   grid-template-columns: 160px minmax(0, 1fr);
   align-items: center;
   gap: 48px;
+
+  @include sp {
+    display: block;
+  }
 }
 
 .strength-card__number {
   width: 150px;
   height: auto;
+
+  @include sp {
+    width: 112px;
+    margin-bottom: 22px;
+  }
 }
 
 .strength-card__copy h3 {
@@ -228,15 +342,33 @@ html:has(.profile-page) {
   font-size: 20px;
   font-weight: 900;
   line-height: 1.35;
+
+  @include sp {
+    margin-bottom: 12px !important;
+    font-size: 18px;
+  }
 }
 
 .strength-card__copy p {
   font-size: 15px;
   line-height: 1.42;
+
+  @include sp {
+    font-size: 13px;
+  }
 }
 
 .tools-section {
   padding: 58px 100px 82px;
+
+  @include tab {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+
+  @include sp {
+    padding: 46px 0 68px;
+  }
 }
 
 .tools-grid {
@@ -245,6 +377,12 @@ html:has(.profile-page) {
   column-gap: 86px;
   row-gap: 52px;
   margin-top: 70px;
+
+  @include sp {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    margin-top: 48px;
+  }
 }
 
 .tool-card h3 {
@@ -253,6 +391,10 @@ html:has(.profile-page) {
   font-size: 21px;
   font-weight: 900;
   line-height: 1.1;
+
+  @include sp {
+    font-size: 19px;
+  }
 }
 
 .tool-card__stars {
@@ -267,12 +409,26 @@ html:has(.profile-page) {
 
 .biography-section {
   padding: 98px 100px 0;
+
+  @include tab {
+    padding-right: 55px;
+    padding-left: 55px;
+  }
+
+  @include sp {
+    padding: 58px 0 0;
+  }
 }
 
 .biography-list {
   display: grid;
   gap: 38px;
   margin-top: 96px !important;
+
+  @include sp {
+    gap: 42px;
+    margin-top: 58px !important;
+  }
 }
 
 .biography-item {
@@ -280,6 +436,10 @@ html:has(.profile-page) {
   grid-template-columns: 190px minmax(0, 1fr);
   align-items: start;
   gap: 28px;
+
+  @include sp {
+    display: block;
+  }
 }
 
 .biography-item dt {
@@ -288,6 +448,10 @@ html:has(.profile-page) {
   font-size: 15px;
   line-height: 1.45;
   white-space: nowrap;
+
+  @include sp {
+    margin-bottom: 14px;
+  }
 }
 
 .biography-item dt::before {
@@ -304,153 +468,8 @@ html:has(.profile-page) {
   max-width: 780px;
   font-size: 15px;
   line-height: 1.48;
-}
 
-@media screen and (min-width: 768px) and (max-width: 1100px) {
-  .profile-page .profile-main {
-    width: min(900px, calc(100% - 64px));
-    padding-top: 110px;
-  }
-
-  .profile-overview {
-    grid-template-columns: 260px minmax(0, 1fr);
-    gap: 56px;
-  }
-
-  .profile-portrait {
-    width: 260px;
-    height: 280px;
-  }
-
-  .profile-lead {
+  @include sp {
     font-size: 13px;
-  }
-
-  .strength-section,
-  .tools-section,
-  .biography-section {
-    padding-right: 55px;
-    padding-left: 55px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .profile-page {
-    font-size: 14px;
-  }
-
-  .profile-page .profile-main {
-    width: calc(100% - 40px);
-    padding: 64px 0 140px;
-  }
-
-  .profile-heading,
-  .profile-section-title--en {
-    font-size: 52px;
-  }
-
-  .profile-overview {
-    display: block;
-    margin: 46px auto 64px;
-  }
-
-  .profile-portrait {
-    width: min(260px, 100%);
-    height: 280px;
-    margin-inline: auto !important;
-  }
-
-  .profile-copy {
-    margin-top: 44px;
-  }
-
-  .profile-name {
-    flex-wrap: wrap;
-    gap: 12px 18px;
-    margin-bottom: 24px !important;
-  }
-
-  .profile-name strong {
-    font-size: 25px;
-  }
-
-  .profile-lead {
-    font-size: 13px;
-  }
-
-  .only-desktop {
-    display: none;
-  }
-
-  .profile-section-title--jp {
-    font-size: 30px;
-  }
-
-  .strength-section,
-  .tools-section,
-  .biography-section {
-    padding-right: 0;
-    padding-left: 0;
-  }
-
-  .strength-section {
-    padding-top: 42px;
-    padding-bottom: 68px;
-  }
-
-  .strength-list {
-    gap: 54px;
-    margin-top: 54px;
-  }
-
-  .strength-card {
-    display: block;
-  }
-
-  .strength-card__number {
-    width: 112px;
-    margin-bottom: 22px;
-  }
-
-  .strength-card__copy h3 {
-    margin-bottom: 12px !important;
-    font-size: 18px;
-  }
-
-  .strength-card__copy p,
-  .biography-item dd {
-    font-size: 13px;
-  }
-
-  .tools-section {
-    padding-top: 46px;
-    padding-bottom: 68px;
-  }
-
-  .tools-grid {
-    grid-template-columns: 1fr;
-    gap: 36px;
-    margin-top: 48px;
-  }
-
-  .tool-card h3 {
-    font-size: 19px;
-  }
-
-  .biography-section {
-    padding-top: 58px;
-  }
-
-  .biography-list {
-    gap: 42px;
-    margin-top: 58px !important;
-  }
-
-  .biography-item {
-    display: block;
-  }
-
-  .biography-item dt {
-    margin-bottom: 14px;
   }
 }
