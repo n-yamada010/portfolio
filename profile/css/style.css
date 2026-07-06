@@ -338,7 +338,7 @@ html:has(.profile-page) {
 .strength-card__copy h3 {
   margin-bottom: 4px !important;
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 800;
   line-height: 1.35;
 }
 @media screen and (max-width: 767px) {
@@ -387,8 +387,9 @@ html:has(.profile-page) {
 .tool-card h3 {
   font-family: var(--font-en);
   font-size: 24px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 1;
+  margin-bottom: 4px;
 }
 @media screen and (max-width: 767px) {
   .tool-card h3 {
@@ -401,6 +402,7 @@ html:has(.profile-page) {
   letter-spacing: 0.08em;
   font-size: 22px;
   line-height: 1.47;
+  letter-spacing: 0.2em;
 }
 
 .tool-card > p:not(.tool-card__stars) {
@@ -451,9 +453,9 @@ html:has(.profile-page) {
 
 .biography-item dt {
   position: relative;
-  padding-left: 35px;
-  font-size: 16px;
-  line-height: 1.45;
+  padding-left: 38px;
+  font-size: 17px;
+  line-height: 1.4;
   font-weight: 700;
   white-space: nowrap;
 }

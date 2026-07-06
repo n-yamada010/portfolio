@@ -511,18 +511,19 @@ button {
     margin: 5px 0 0;
     overflow: hidden;
     font-size: clamp(8px, 1.35vw, 15px);
-    font-weight: 800;
+    font-weight: 700;
     line-height: 1.35;
     text-overflow: ellipsis;
     white-space: nowrap;
 
     @media screen and (min-width: 768px) {
-      margin-top: 9px;
+      margin-top: 6px;
     }
 
     @include narrow {
-      margin-top: 7px;
+      margin-top: 6px;
       font-size: 13px;
+      text-align: center;
     }
   }
 }

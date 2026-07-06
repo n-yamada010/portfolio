@@ -707,8 +707,8 @@ button {
     padding-bottom: 12px;
     border-bottom: 2px solid #4254e7;
     font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.045em;
+    font-weight: 700;
+    letter-spacing: -0.01em;
 
     @include sp {
       font-size: 17px;
@@ -796,7 +796,7 @@ button {
   p {
     margin: 0;
     font-style: italic;
-    font-weight: 900;
+    font-weight: 800;
   }
 
   &--website {
@@ -1199,7 +1199,7 @@ button {
   h3 {
     margin: 10px 0 8px;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: 700;
     overflow-x: hidden;
     letter-spacing: 0.01em;
     text-overflow: ellipsis;
@@ -1390,13 +1390,14 @@ button {
 
     strong {
       font-size: 30px;
-      letter-spacing: -0.05em;
+      letter-spacing: 0.01em;
     }
 
     em {
       font-family: var(--font-en);
       font-size: 18px;
       font-weight: 900;
+      letter-spacing: 0.01em;
     }
   }
 
