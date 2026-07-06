@@ -203,7 +203,7 @@ body::before {
 .brief__item dd {
   min-width: 0;
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.65;
 }
 .brief__item dd ol {
