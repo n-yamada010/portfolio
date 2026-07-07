@@ -129,9 +129,9 @@ body {
 .project {
   &__title {
     color: var(--ink);
-    font-size: clamp(18px, 2.2vw, 34px);
-    font-weight: 800;
-    letter-spacing: -0.04em;
+    font-size: clamp(18px, 2.2vw, 28px);
+    font-weight: 700;
+    letter-spacing: 0.01em;
     line-height: 1.3;
   }
 
@@ -157,21 +157,19 @@ body {
 
   &__url {
     display: flex;
-    gap: 20px;
-    align-items: baseline;
+    align-items: center;
     padding-top: 20px;
-    font-family: var(--font-en);
-    font-size: 20px;
+    font-family: var(--font-jp);
+    font-size: 17px;
 
     @include sp {
       font-size: 16px;
     }
 
-    span {
-      font-weight: 800;
-    }
-
     a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       font-weight: 700;
       opacity: 1;
       transition: opacity 0.25s ease;
@@ -179,6 +177,91 @@ body {
       &:hover,
       &:focus-visible {
         opacity: 0.6;
+      }
+    }
+
+    &-icon {
+      --icon-size: 22px;
+      --icon-stroke: 2px;
+      --icon-box-size: 16px;
+      --icon-box-left: 2px;
+      --icon-box-bottom: 2px;
+      --icon-box-open:  10px;
+      --icon-arrow-line: 16px;
+      --icon-arrow-top: 2px;
+      --icon-arrow-right: 2px;
+      --icon-arrow-head-trim: 1.5px;
+      --icon-arrow-head: 8px;
+      --icon-arrow-head-top: 3px;
+      --icon-arrow-head-right: 2px;
+
+      position: relative;
+      display: block;
+      flex: 0 0 var(--icon-size);
+      width: var(--icon-size);
+      height: var(--icon-size);
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+      }
+
+      &::before {
+        top: var(--icon-arrow-top);
+        right: var(--icon-arrow-right);
+        width: var(--icon-arrow-line);
+        height: var(--icon-stroke);
+        background: currentColor;
+        clip-path: inset(0 var(--icon-arrow-head-trim) 0 0);
+        transform: rotate(-45deg);
+        transform-origin: right center;
+      }
+
+      &::after {
+        top: var(--icon-arrow-head-top);
+        right: var(--icon-arrow-head-right);
+        width: var(--icon-arrow-head);
+        height: var(--icon-arrow-head);
+        border-top: var(--icon-stroke) solid currentColor;
+        border-right: var(--icon-stroke) solid currentColor;
+      }
+
+      @include sp {
+        transform: scale(0.86);
+        transform-origin: left center;
+      }
+    }
+
+    &-icon-box {
+      position: absolute;
+      bottom: var(--icon-box-bottom);
+      left: var(--icon-box-left);
+      width: var(--icon-box-size);
+      height: var(--icon-box-size);
+      border-left: var(--icon-stroke) solid currentColor;
+      border-bottom: var(--icon-stroke) solid currentColor;
+      box-sizing: border-box;
+
+      &::before,
+      &::after {
+        position: absolute;
+        background: currentColor;
+        content: "";
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: calc(100% - var(--icon-box-open));
+        height: var(--icon-stroke);
+      }
+
+      &::after {
+        right: 0;
+        bottom: 0;
+        width: var(--icon-stroke);
+        height: calc(100% - var(--icon-box-open));
       }
     }
   }
