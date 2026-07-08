@@ -199,6 +199,21 @@ button {
       color: #fff;
       cursor: pointer;
       transition: transform 0.25s ease;
+
+      &::before,
+      &::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 24px;
+        height: 2px;
+        border-radius: 999px;
+        background: currentColor;
+        content: "";
+        opacity: 0;
+        transform: translate(-50%, -50%) scaleX(0);
+        transition: transform 0.3s ease, opacity 0.2s ease;
+      }
     }
 
     &:hover,
@@ -215,22 +230,26 @@ button {
         height: 2px;
         border-radius: 999px;
         background: currentColor;
+        transform-origin: center;
         transition: transform 0.3s ease, opacity 0.2s ease;
       }
     }
 
     .header.is-menu-open & {
       @include sp {
-        span:nth-child(1) {
-          transform: translateY(7px) rotate(45deg);
+        &::before {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(45deg) scaleX(1);
         }
 
-        span:nth-child(2) {
+        &::after {
+          opacity: 1;
+          transform: translate(-50%, -50%) rotate(-45deg) scaleX(1);
+        }
+
+        span {
           opacity: 0;
-        }
-
-        span:nth-child(3) {
-          transform: translateY(-7px) rotate(-45deg);
+          transform: scaleX(0);
         }
       }
     }
