@@ -47,4 +47,5 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     revealTargets.forEach((element) => element.classList.add('is-visible'));
   }
+
 });
