@@ -1,6 +1,6 @@
-$(function(){
+$(function() {
     // symposiumのカルーセル
-    $(".symposium_carousel") .slick({
+    $(".symposium_carousel").slick({
         autoplay: true,
         autoplaySpeed: 1500,
         arrows: false,
@@ -18,74 +18,46 @@ $(function(){
     });
 
     // symposium memberのアコーディオン
-    $(".member_accordion button").on("click",function(){
-        $(this).next().slideToggle();
-    });
-    $(".member_accordion .member_faq").hide();
+    // 全文表示アコーディオン
+    $(".member_accordion .member_faq, .interview_accordion .interview_faq").hide();
+    $(".member_accordion .accordion-btn, .interview_accordion .accordion-btn").on("click", function() {
+        const $button = $(this);
+        const isOpen = $button.attr("aria-expanded") === "true";
 
-    $('.member_accordion .member_faq').click(function() {
-      // 現在開いているアコーディオンを閉じる
-      $('.member_accordion .member_faq').slideUp('fast');
-    });
-
-    // interviewのアコーディオン
-    $(".interview_accordion button").on("click",function(){
-        $(this).next().slideToggle();
-    });
-    $(".interview_accordion .interview_faq").hide();
-
-    $('.interview_accordion .interview_faq').click(function() {
-      // 現在開いているアコーディオンを閉じる
-      $('.interview_accordion .interview_faq').slideUp('fast');
+        $button.attr("aria-expanded", String(!isOpen));
+        $button.text(isOpen ? "全文を見る" : "閉じる");
+        $button.next().stop(true, true).slideToggle();
     });
 
     // ハンバーガーメニュー
-    $(".nav-button").on("click",function(){
-        $("body").toggleClass("menu-open");
-        });
-    $(document).on('click','.menu-open nav',function(){
-        $(".nav-button").trigger('click');    
+    $(".nav-button").on("click", function() {
+        const isOpen = $("body").toggleClass("menu-open").hasClass("menu-open");
+        $(this)
+            .attr("aria-expanded", String(isOpen))
+            .attr("aria-label", isOpen ? "メニューを閉じる" : "メニューを開く");
     });
+    $(".menu a").on("click", function() {
+        if ($("body").hasClass("menu-open")) {
+            $(".nav-button").trigger("click");
+        }
+    });
+
+    // ヘッダーと固定応募ボタンの表示制御
+    const $window = $(window);
+    const $header = $("header");
+    const $fixedEntry = $(".fixed_entry-btn");
+    const $footer = $("footer");
+
+    function updateFixedElements() {
+        const scrollTop = $window.scrollTop();
+        const footerTop = $footer.offset().top;
+        const viewportBottom = scrollTop + $window.height();
+
+        $header.toggleClass("active", scrollTop > 100);
+        $fixedEntry.toggleClass("active", scrollTop > 500);
+        $fixedEntry.toggleClass("is-hidden", viewportBottom >= footerTop);
+    }
+
+    $window.on("load scroll resize", updateFixedElements);
+    updateFixedElements();
 });
-
-// fixed_entry-btnの表示表示
-jQuery(function() {
-
-    var footer = $('footer').innerHeight();
-    
-    window.onscroll = function () {
-      var point = window.pageYOffset;
-      var docHeight = $(document).height();
-      var dispHeight = $(window).height();
-    
-      if(point > docHeight-dispHeight-footer){
-        $('.fixed_entry-btn').addClass('is-hidden');
-      }else{
-        $('.fixed_entry-btn').removeClass('is-hidden');
-      }
-    };
-});
-$(function() {
-    var btn = $('.fixed_entry-btn');
-    
-    $(window).on('load scroll', function(){
-      if($(this).scrollTop() > 500) {
-        btn.addClass('active');
-      }else{
-        btn.removeClass('active');
-      }
-    });
-  });
-
-// headerの表示非表示
-  $(function() {
-    var btn = $('header');
-    
-    $(window).on('load scroll', function(){
-      if($(this).scrollTop() > 100) {
-        btn.addClass('active');
-      }else{
-        btn.removeClass('active');
-      }
-    });
-  });

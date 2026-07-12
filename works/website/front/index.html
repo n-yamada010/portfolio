@@ -7,8 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="icon" href="../../../img/favicon.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&amp;display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon.ico" sizes="any">
 
     <link rel="stylesheet" href="css/slick.css">
     <link rel="stylesheet" href="css/slick-theme.css">
@@ -18,13 +18,13 @@
 </head>
 <body>
     <header>
-        <h1 class="logo"><a href="#"><img src="img/image_lausol-logo.png" alt="Laulea Solution"></a></h1>
-        <div class="nav-button">
+        <h1 class="logo"><a href="#top" aria-label="ページの先頭へ戻る"><img src="img/image_lausol-logo.png" alt="株式会社ラウレアソリューション"></a></h1>
+        <button class="nav-button" type="button" aria-label="メニューを開く" aria-controls="global-navigation" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        <nav>
+        </button>
+        <nav id="global-navigation" aria-label="メインナビゲーション">
             <ul class="menu">
                 <li><a href="#company">会社概要</a></li>
                 <li><a href="#symposium">座談会</a></li>
@@ -36,9 +36,10 @@
     </header>
 
     <main>
-        <div class="video-container">
+        <div class="video-container" id="top">
             <div class="video-wrap">
-                <video src="video/1920-1080.mp4" type="video/mp4" playsinline loop autoplay muted>
+                <video src="video/1920-1080.mp4" poster="img/image_mainimage.png" playsinline loop autoplay muted aria-hidden="true">
+                    お使いのブラウザは動画の再生に対応していません。
                 </video>
             </div>
             <figure class="mv_catch pc"><img src="img/image_mv-catch.png" width="788" height="367" alt="あなたのキャリアにあなただけの”存在意義”を"/></figure>
@@ -178,8 +179,8 @@
                 </div>
                 <div class="member_accordion">
                     <!-- css-stockボタンシャドウ　参照 -->
-                    <button class="accordion-btn">全文を見る</button>
-                    <dl class="member_faq">
+                    <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="member-faq">全文を見る</button>
+                    <dl class="member_faq" id="member-faq">
                         <dt class="member_q1">Q.ラウレアソリューションに入社した経緯をお聞かせください</dt>
                         <dd class="member_a1">
                             <div class="member_a1-boxarea">
@@ -271,8 +272,8 @@
                 </div>
                 <div class="interview_accordion">    
                     <!-- css-stockボタンシャドウ　参照 -->
-                    <button class="accordion-btn">全文を見る</button>
-                    <dl class="interview_faq">
+                    <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="interview-faq-1">全文を見る</button>
+                    <dl class="interview_faq" id="interview-faq-1">
                         <dt class="interview_q1">Q.現在のお仕事について教えてください。</dt>
                         <dd class="interview_a1">現在はSES営業として、クライアント企業とエンジニアの橋渡し役をしています。具体的には、企業の開発ニーズをヒアリングして、最適なエンジニアをご提案する仕事です。クライアントとの信頼関係づくりも大切ですが、エンジニア一人ひとりのキャリアや希望も丁寧に汲み取る必要があるので、まさに“人と人をつなぐ”仕事ですね。</dd>
                         <dt class="interview_q2">Q.この仕事を選んだきっかけは？</dt>
@@ -298,8 +299,8 @@
                     </div>
                 </div>
                 <div class="interview_accordion">    
-                    <button class="accordion-btn">全文を見る</button>
-                    <dl class="interview_faq">
+                    <button class="accordion-btn" type="button" aria-expanded="false" aria-controls="interview-faq-2">全文を見る</button>
+                    <dl class="interview_faq" id="interview-faq-2">
                         <dt class="interview_q1">Q.現在のお仕事について教えてください。</dt>
                         <dd class="interview_a1">現在は常駐先のクライアントの元で、基幹システムの保守・運用を担当しています。加えて、新しい機能追加の設計や実装にも関わっていて、上流から下流まで幅広くやらせてもらってます。技術的な面白さもありますし、安定性が求められる分、責任感も持って取り組める環境です。</dd>
                         <dt class="interview_q2">Q.この仕事を選んだきっかけは？</dt>
@@ -482,7 +483,7 @@
             <div class="campaign_title-box">
                 <div class="campaign_title">
                     <h2><span class="title_border">採用決定お祝い金<br class="br-sp">キャンペーンを実施中</span></h2>
-                    <p class="title_text">システムエンジニアのご経験が1年以上で、<br class="br-sp">次のサイト<a href="https://lausol.com" target="_blank">(https://lausol.com)</a>から<br class="br-sp">直接ご応募いただいた方に、
+                    <p class="title_text">システムエンジニアのご経験が1年以上で、<br class="br-sp">次のサイト<a href="https://lausol.com" target="_blank" rel="noopener noreferrer">(https://lausol.com)</a>から<br class="br-sp">直接ご応募いただいた方に、
                         <br>採用決定のお祝いとして、下記の通り<br class="br-sp">お祝い金をプレゼントいたします。
                     </p>
                     <div class="targetaudience">
@@ -523,7 +524,7 @@
                         <div class="conditions">
                             <h3>支給条件</h3>
                             <h4>株式会社ラウレアソリューションのWebサイト経由で直接ご応募いただき、
-                                <br>正式採用が決定すること。(入社時期は相談可)</h4>
+                                <br class="pc">正式採用が決定すること。(入社時期は相談可)</h4>
                             <p>※以下の方は適用対象外となります。</p>
                             <ol>
                                 <li>①転職エージェント・知人からのご紹介または求人媒体経由でご応募いただいた方</li>
@@ -599,7 +600,7 @@
                 </div>
             </div>
             <div class="campaign_banner">
-                <figure><a href="https://lausol.com/se_career/" target="_blank"><img src="img/image_campaign-banner.png" alt="採用決定お祝い金最大100万円プレゼント※支給条件あり"></a></figure>
+                <figure><a href="https://lausol.com/se_career/" target="_blank" rel="noopener noreferrer"><img src="img/image_campaign-banner.png" alt="採用決定お祝い金最大100万円プレゼント※支給条件あり" loading="lazy" decoding="async"></a></figure>
             </div>
             <div class="entry-btn">
                 <a href="#"><span class="btn-name">ENTRY<span class="btn-subname"><br>応募する</span></span><i class="entry_arrow-right"></i></a>
@@ -616,13 +617,13 @@
     <footer>
         <div class="footer_contents">
             <div class="footer-left">
-                <h1 class="logo"><img src="img/image_lausol-logo.png" alt="株式会社ラウレアソリューション"></h1>
+                <p class="logo"><img src="img/image_lausol-logo.png" alt="株式会社ラウレアソリューション" loading="lazy" decoding="async"></p>
                 <p class="footer_text">株式会社ラウレアソリューションは、システムエンジニアリングサービス（SES）と<br>アプリケーション開発を手掛ける企業です。</p>
                 <p>株式会社ラウレアソリューション</p>
                 <p>東京都千代田区神田小川町3-8-10<br>メアリヒト御茶ノ水ビル4F</p>
             </div>
             <div class="footer-right">
-                <nav>
+                <nav aria-label="フッターナビゲーション">
                     <ul class="footer_menu">
                         <li><a href="#company">会社概要</a></li>
                         <li><a href="#symposium">座談会</a></li>

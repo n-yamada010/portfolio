@@ -28,6 +28,12 @@ nav a:hover{
     color: #00ADC9;
     opacity: 0.8;
 }
+.nav-button{
+    display: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
 .br-sp{
     display: none;
 }
@@ -549,7 +555,10 @@ video {
     background-color: #fff;
 }
 .sales:not([open]){
-    margin-bottom: 75px;
+    margin-bottom: 30px;
+}
+.sales[open]{
+    margin-bottom: 80px;
 }
 .sales summary{
     display: flex;
@@ -601,7 +610,7 @@ video {
     margin-bottom: 7px;
 }
 .engineer summary{
-    margin-top: 80px;
+    margin-top: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -649,7 +658,10 @@ video {
     height: 440px;
     text-align: center;
     background-image: url(img/image_campaign-titlebg.png);
-    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: #fff;
 }
 .campaign_title{
     padding-top: 70px;
@@ -736,6 +748,8 @@ video {
 }
 .conditions h4{
     position: relative;
+    box-sizing: border-box;
+    padding-left: 26px;
     font-size: 1rem;
     font-weight: 500;
 }
@@ -744,11 +758,11 @@ video {
     display: block;
     width: 16px;
     height: 16px;
-    margin-right: 10px;
+    margin-right: 0;
     position: absolute;
-    float: left;
+    float: none;
     top: 5px;
-    left: -25px;
+    left: 0;
     background-color: #00ADC9;
 }
 .conditions ol{
@@ -1058,9 +1072,13 @@ footer{
         display: inline;
     }
     /* header */
+    header{
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 10px 0 20px;
+    }
     header .logo{
-        margin-left: 20px;
-        margin-right: 145px;
+        margin: 0;
     }
     header .logo img{
         width: auto;
@@ -1093,12 +1111,15 @@ footer{
     }
         /* ハンバーガーメニュー */
     .nav-button {
-        width: 70px;
+        display: block;
+        flex: 0 0 50px;
+        width: 50px;
         height: 50px;
         position: relative;
         z-index: 1;
     }
     .nav-button span {
+        left: 9px;
         width: 32px;
         height: 3px;
         background-color: #333;
@@ -1269,6 +1290,10 @@ footer{
         padding-bottom: 150px;
         height: auto;
         background-image: url(img/image_campaign-titlebg-sp.png);
+        background-position: center top;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: #fff;
     }
     .title_text{
         width: 100%;
